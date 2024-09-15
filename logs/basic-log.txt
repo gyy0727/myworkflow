@@ -283,3 +283,6 @@
 [2024-09-12 18:49:11.259] [basic_logger] [info] This is an info message with value: 42
 [2024-09-12 18:49:11.259] [basic_logger] [warning] This is a warning message with name: example
 [2024-09-12 18:49:11.259] [basic_logger] [error] This is an error message
+[2024-09-16 19:17:55.600] [basic_logger] [info] This is an info message with value: 42
+[2024-09-16 19:17:55.600] [basic_logger] [warning] This is a warning message with name: example
+[2024-09-16 19:17:55.600] [basic_logger] [error] This is an error message
