@@ -1,0 +1,5 @@
+/root/desktop/opensource/myworkflow/build/CMakeFiles/workflow.dir
+/root/desktop/opensource/myworkflow/build/CMakeFiles/test_thrdpool.dir
+/root/desktop/opensource/myworkflow/build/CMakeFiles/test_httpparser.dir
+/root/desktop/opensource/myworkflow/build/CMakeFiles/edit_cache.dir
+/root/desktop/opensource/myworkflow/build/CMakeFiles/rebuild_cache.dir
