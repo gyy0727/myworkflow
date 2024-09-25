@@ -1,310 +1,185 @@
 /*
-  Copyright (c) 2019 Sogou, Inc.
+ * @Author       : gyy0727 3155833132@qq.com
+ * @Date         : 2024-09-09 21:43:16
+ * @LastEditors  : gyy0727 3155833132@qq.com
+ * @LastEditTime : 2024-09-25 13:21:21
+ * @FilePath     : /myworkflow/src/kernel/poller.c
+ * @Description  :
+ * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
+ */
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-
-  Author: Xie Han (xiehan@sogou-inc.com)
-*/
-
-#include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <sys/uio.h>
 #ifdef __linux__
-# include <sys/epoll.h>
-# include <sys/timerfd.h>
+#include <sys/epoll.h>
+#include <sys/timerfd.h>
 #else
-# include <sys/event.h>
-# undef LIST_HEAD
-# undef SLIST_HEAD
+#include <sys/event.h>
+#undef LIST_HEAD
+#undef SLIST_HEAD
 #endif
+#include "list.h"
+#include "poller.h"
+#include "rbtree.h"
 #include <errno.h>
 #include <limits.h>
-#include <unistd.h>
-#include <time.h>
+#include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
-#include <pthread.h>
-#include <openssl/ssl.h>
-#include "list.h"
-#include "rbtree.h"
-#include "poller.h"
+#include <time.h>
+#include <unistd.h>
 
-#define POLLER_BUFSIZE			(256 * 1024)
-#define POLLER_EVENTS_MAX		256
+#define POLLER_BUFSIZE (256 * 1024)
+#define POLLER_EVENTS_MAX 256
 
-struct __poller_node
-{
-	int state;
-	int error;
-	struct poller_data data;
+//*代表一个事件
+struct __poller_node {
+  int state;               //*状态
+  int error;               //*错误码
+  struct poller_data data; //*对应的回调函数和内容
 #pragma pack(1)
-	union
-	{
-		struct list_head list;
-		struct rb_node rb;
-	};
+  union {
+    struct list_head list;
+    struct rb_node rb;
+  };
 #pragma pack()
-	char in_rbtree;
-	char removed;
-	int event;
-	struct timespec timeout;
-	struct __poller_node *res;
+  char in_rbtree;            //*是否在红黑树
+  char removed;              //*是否已经被移除
+  int event;                 //*要监听的事件
+  struct timespec timeout;   //*超时时间
+  struct __poller_node *res; //*处理结果
 };
 
-struct __poller
-{
-	size_t max_open_files;
-	void (*callback)(struct poller_result *, void *);
-	void *context;
-
-	pthread_t tid;
-	int pfd;
-	int timerfd;
-	int pipe_rd;
-	int pipe_wr;
-	int stopped;
-	struct rb_root timeo_tree;
-	struct rb_node *tree_first;
-	struct rb_node *tree_last;
-	struct list_head timeo_list;
-	struct list_head no_timeo_list;
-	struct __poller_node **nodes;
-	pthread_mutex_t mutex;
-	char buf[POLLER_BUFSIZE];
+struct __poller {
+  size_t max_open_files; //*可以打开的最大文件描述符数量
+  void (*callback)(struct poller_result *, void *); //*回调函数
+  void *context;                                    //*上下文
+  pthread_t tid;                                    //*所属的线程id
+  int pfd;                                          //*epoll_fd
+  int timerfd;                                      //*超时文件描述符
+  int pipe_rd;                                      //*读端
+  int pipe_wr;                                      //*写端
+  int stopped;                                      //*是否已经停止
+  struct rb_root timeo_tree;                        //*超时红黑树
+  struct rb_node *tree_first;                       //*第一个超时节点
+  struct rb_node *tree_last;                        //*最后一个超时节点
+  struct list_head timeo_list;                      //*超时的链表
+  struct list_head no_timeo_list;                   //*未超时的节点
+  struct __poller_node **nodes;                     //*节点链表
+  pthread_mutex_t mutex;                            //*互斥锁
+  char buf[POLLER_BUFSIZE];                         //*缓冲区
 };
 
 #ifdef __linux__
 
-static inline int __poller_create_pfd()
-{
-	return epoll_create(1);
-}
+//*创建epoll_fd
+static inline int __poller_create_pfd() { return epoll_create(1); }
 
+//*向epoll结构体添加fd
 static inline int __poller_add_fd(int fd, int event, void *data,
-								  poller_t *poller)
-{
-	struct epoll_event ev = {
-		.events		=	event,
-		.data		=	{
-			.ptr	=	data
-		}
-	};
-	return epoll_ctl(poller->pfd, EPOLL_CTL_ADD, fd, &ev);
+                                  poller_t *poller) {
+  struct epoll_event ev = {.events = event, .data = {.ptr = data}};
+  return epoll_ctl(poller->pfd, EPOLL_CTL_ADD, fd, &ev);
 }
 
-static inline int __poller_del_fd(int fd, int event, poller_t *poller)
-{
-	return epoll_ctl(poller->pfd, EPOLL_CTL_DEL, fd, NULL);
+//*向epoll结构体删除fd
+static inline int __poller_del_fd(int fd, int event, poller_t *poller) {
+  return epoll_ctl(poller->pfd, EPOLL_CTL_DEL, fd, NULL);
 }
 
-static inline int __poller_mod_fd(int fd, int old_event,
-								  int new_event, void *data,
-								  poller_t *poller)
-{
-	struct epoll_event ev = {
-		.events		=	new_event,
-		.data		=	{
-			.ptr	=	data
-		}
-	};
-	return epoll_ctl(poller->pfd, EPOLL_CTL_MOD, fd, &ev);
+//*修改事件
+static inline int __poller_mod_fd(int fd, int old_event, int new_event,
+                                  void *data, poller_t *poller) {
+  struct epoll_event ev = {.events = new_event, .data = {.ptr = data}};
+  return epoll_ctl(poller->pfd, EPOLL_CTL_MOD, fd, &ev);
 }
 
-static inline int __poller_create_timerfd()
-{
-	return timerfd_create(CLOCK_MONOTONIC, 0);
+//*创建超时文件描述符
+static inline int __poller_create_timerfd() {
+  return timerfd_create(CLOCK_MONOTONIC, 0);
 }
 
-static inline int __poller_close_timerfd(int fd)
-{
-	return close(fd);
+//*释放超时文件描述符
+static inline int __poller_close_timerfd(int fd) { return close(fd); }
+
+//*像epoll添加超时文件描述符
+static inline int __poller_add_timerfd(int fd, poller_t *poller) {
+  struct epoll_event ev = {.events = EPOLLIN | EPOLLET, .data = {.ptr = NULL}};
+  return epoll_ctl(poller->pfd, EPOLL_CTL_ADD, fd, &ev);
 }
 
-static inline int __poller_add_timerfd(int fd, poller_t *poller)
-{
-	struct epoll_event ev = {
-		.events		=	EPOLLIN | EPOLLET,
-		.data		=	{
-			.ptr	=	NULL
-		}
-	};
-	return epoll_ctl(poller->pfd, EPOLL_CTL_ADD, fd, &ev);
-}
-
+//*给超时文件描述符添加超时时间
 static inline int __poller_set_timerfd(int fd, const struct timespec *abstime,
-									   poller_t *poller)
-{
-	struct itimerspec timer = {
-		.it_interval	=	{ },
-		.it_value		=	*abstime
-	};
-	return timerfd_settime(fd, TFD_TIMER_ABSTIME, &timer, NULL);
+                                       poller_t *poller) {
+  struct itimerspec timer = {
+      .it_interval =
+          {}, //*定时器的间隔时间，设置为默认值（即0，表示一次性定时器）
+      .it_value = *abstime //*定时器的首次触发时间
+  };
+  return timerfd_settime(fd, TFD_TIMER_ABSTIME, &timer, NULL);
 }
 
+//*epoll_event
 typedef struct epoll_event __poller_event_t;
 
+//*监听事件
 static inline int __poller_wait(__poller_event_t *events, int maxevents,
-								poller_t *poller)
-{
-	return epoll_wait(poller->pfd, events, maxevents, -1);
+                                poller_t *poller) {
+  return epoll_wait(poller->pfd, events, maxevents, -1);
 }
 
-static inline void *__poller_event_data(const __poller_event_t *event)
-{
-	return event->data.ptr;
+//*获得数据指针event->data.ptr
+static inline void *__poller_event_data(const __poller_event_t *event) {
+  return event->data.ptr;
 }
-
-#else /* BSD, macOS */
-
-static inline int __poller_create_pfd()
-{
-	return kqueue();
-}
-
-static inline int __poller_add_fd(int fd, int event, void *data,
-								  poller_t *poller)
-{
-	struct kevent ev;
-	EV_SET(&ev, fd, event, EV_ADD, 0, 0, data);
-	return kevent(poller->pfd, &ev, 1, NULL, 0, NULL);
-}
-
-static inline int __poller_del_fd(int fd, int event, poller_t *poller)
-{
-	struct kevent ev;
-	EV_SET(&ev, fd, event, EV_DELETE, 0, 0, NULL);
-	return kevent(poller->pfd, &ev, 1, NULL, 0, NULL);
-}
-
-static inline int __poller_mod_fd(int fd, int old_event,
-								  int new_event, void *data,
-								  poller_t *poller)
-{
-	struct kevent ev[2];
-	EV_SET(&ev[0], fd, old_event, EV_DELETE, 0, 0, NULL);
-	EV_SET(&ev[1], fd, new_event, EV_ADD, 0, 0, data);
-	return kevent(poller->pfd, ev, 2, NULL, 0, NULL);
-}
-
-static inline int __poller_create_timerfd()
-{
-	return 0;
-}
-
-static inline int __poller_close_timerfd(int fd)
-{
-	return 0;
-}
-
-static inline int __poller_add_timerfd(int fd, poller_t *poller)
-{
-	return 0;
-}
-
-static int __poller_set_timerfd(int fd, const struct timespec *abstime,
-								poller_t *poller)
-{
-	struct timespec curtime;
-	long long nseconds;
-	struct kevent ev;
-	int flags;
-
-	if (abstime->tv_sec || abstime->tv_nsec)
-	{
-		clock_gettime(CLOCK_MONOTONIC, &curtime);
-		nseconds = 1000000000LL * (abstime->tv_sec - curtime.tv_sec);
-		nseconds += abstime->tv_nsec - curtime.tv_nsec;
-		flags = EV_ADD;
-	}
-	else
-	{
-		nseconds = 0;
-		flags = EV_DELETE;
-	}
-
-	EV_SET(&ev, fd, EVFILT_TIMER, flags, NOTE_NSECONDS, nseconds, NULL);
-	return kevent(poller->pfd, &ev, 1, NULL, 0, NULL);
-}
-
-typedef struct kevent __poller_event_t;
-
-static inline int __poller_wait(__poller_event_t *events, int maxevents,
-								poller_t *poller)
-{
-	return kevent(poller->pfd, NULL, 0, events, maxevents, NULL);
-}
-
-static inline void *__poller_event_data(const __poller_event_t *event)
-{
-	return event->udata;
-}
-
-#define EPOLLIN		EVFILT_READ
-#define EPOLLOUT	EVFILT_WRITE
-#define EPOLLET		0
-
 #endif
 
+//*比较两个节点的超时时间
 static inline long __timeout_cmp(const struct __poller_node *node1,
-								 const struct __poller_node *node2)
-{
-	long ret = node1->timeout.tv_sec - node2->timeout.tv_sec;
+                                 const struct __poller_node *node2) {
+  long ret = node1->timeout.tv_sec - node2->timeout.tv_sec;
 
-	if (ret == 0)
-		ret = node1->timeout.tv_nsec - node2->timeout.tv_nsec;
+  if (ret == 0)
+    ret = node1->timeout.tv_nsec - node2->timeout.tv_nsec;
 
-	return ret;
+  return ret;
 }
 
-static void __poller_tree_insert(struct __poller_node *node, poller_t *poller)
-{
-	struct rb_node **p = &poller->timeo_tree.rb_node;
-	struct rb_node *parent = NULL;
-	struct __poller_node *entry;
+//*将超时节点插入到红黑树
+static void __poller_tree_insert(struct __poller_node *node, poller_t *poller) {
+  struct rb_node **p = &poller->timeo_tree.rb_node;
+  struct rb_node *parent = NULL;
+  struct __poller_node *entry;
+  entry = rb_entry(poller->tree_last, struct __poller_node, rb);
+  if (!*p) {
+    poller->tree_first = &node->rb;
+    poller->tree_last = &node->rb;
+  } else if (__timeout_cmp(node, entry) >= 0) {
+    parent = poller->tree_last;
+    p = &parent->rb_right;
+    poller->tree_last = &node->rb;
+  } else {
+    do {
+      parent = *p;
+      entry = rb_entry(*p, struct __poller_node, rb);
+      if (__timeout_cmp(node, entry) < 0)
+        p = &(*p)->rb_left;
+      else
+        p = &(*p)->rb_right;
+    } while (*p);
 
-	entry = rb_entry(poller->tree_last, struct __poller_node, rb);
-	if (!*p)
-	{
-		poller->tree_first = &node->rb;
-		poller->tree_last = &node->rb;
-	}
-	else if (__timeout_cmp(node, entry) >= 0)
-	{
-		parent = poller->tree_last;
-		p = &parent->rb_right;
-		poller->tree_last = &node->rb;
-	}
-	else
-	{
-		do
-		{
-			parent = *p;
-			entry = rb_entry(*p, struct __poller_node, rb);
-			if (__timeout_cmp(node, entry) < 0)
-				p = &(*p)->rb_left;
-			else
-				p = &(*p)->rb_right;
-		} while (*p);
+    if (p == &poller->tree_first->rb_left)
+      poller->tree_first = &node->rb;
+  }
 
-		if (p == &poller->tree_first->rb_left)
-			poller->tree_first = &node->rb;
-	}
-
-	node->in_rbtree = 1;
-	rb_link_node(&node->rb, parent, p);
-	rb_insert_color(&node->rb, &poller->timeo_tree);
+  node->in_rbtree = 1;
+  rb_link_node(&node->rb, parent, p);
+  rb_insert_color(&node->rb, &poller->timeo_tree);
 }
 
+
+//*从超时红黑树删除节点
 static inline void __poller_tree_erase(struct __poller_node *node,
 									   poller_t *poller)
 {
@@ -318,6 +193,7 @@ static inline void __poller_tree_erase(struct __poller_node *node,
 	node->in_rbtree = 0;
 }
 
+//*从poller删除节点
 static int __poller_remove_node(struct __poller_node *node, poller_t *poller)
 {
 	int removed;
@@ -382,43 +258,6 @@ static int __poller_append_message(const void *buf, size_t *n,
 	return ret;
 }
 
-static int __poller_handle_ssl_error(struct __poller_node *node, int ret,
-									 poller_t *poller)
-{
-	int error = SSL_get_error(node->data.ssl, ret);
-	int event;
-
-	switch (error)
-	{
-	case SSL_ERROR_WANT_READ:
-		event = EPOLLIN | EPOLLET;
-		break;
-	case SSL_ERROR_WANT_WRITE:
-		event = EPOLLOUT | EPOLLET;
-		break;
-	default:
-		errno = -error;
-	case SSL_ERROR_SYSCALL:
-		return -1;
-	}
-
-	if (event == node->event)
-		return 0;
-
-	pthread_mutex_lock(&poller->mutex);
-	if (!node->removed)
-	{
-		ret = __poller_mod_fd(node->data.fd, node->event, event, node, poller);
-		if (ret >= 0)
-			node->event = event;
-	}
-	else
-		ret = 0;
-
-	pthread_mutex_unlock(&poller->mutex);
-	return ret;
-}
-
 static void __poller_handle_read(struct __poller_node *node,
 								 poller_t *poller)
 {
@@ -429,24 +268,9 @@ static void __poller_handle_read(struct __poller_node *node,
 	while (1)
 	{
 		p = poller->buf;
-		if (!node->data.ssl)
-		{
-			nleft = read(node->data.fd, p, POLLER_BUFSIZE);
-			if (nleft < 0)
-			{
-				if (errno == EAGAIN)
-					return;
-			}
-		}
-		else
-		{
-			nleft = SSL_read(node->data.ssl, p, POLLER_BUFSIZE);
-			if (nleft < 0)
-			{
-				if (__poller_handle_ssl_error(node, nleft, poller) >= 0)
-					return;
-			}
-		}
+		nleft = read(node->data.fd, p, POLLER_BUFSIZE);
+		if (nleft < 0 && errno == EAGAIN)
+			return;
 
 		if (nleft <= 0)
 			break;
@@ -504,30 +328,16 @@ static void __poller_handle_write(struct __poller_node *node,
 
 	while (node->data.iovcnt > 0)
 	{
-		if (!node->data.ssl)
-		{
-			iovcnt = node->data.iovcnt;
-			if (iovcnt > IOV_MAX)
-				iovcnt = IOV_MAX;
+		iovcnt = node->data.iovcnt;
+		if (iovcnt > IOV_MAX)
+			iovcnt = IOV_MAX;
 
-			nleft = writev(node->data.fd, iov, iovcnt);
-			if (nleft < 0)
-			{
-				ret = errno == EAGAIN ? 0 : -1;
-				break;
-			}
-		}
-		else if (iov->iov_len > 0)
+		nleft = writev(node->data.fd, iov, iovcnt);
+		if (nleft < 0)
 		{
-			nleft = SSL_write(node->data.ssl, iov->iov_base, iov->iov_len);
-			if (nleft <= 0)
-			{
-				ret = __poller_handle_ssl_error(node, nleft, poller);
-				break;
-			}
+			ret = errno == EAGAIN ? 0 : -1;
+			break;
 		}
-		else
-			nleft = 0;
 
 		count += nleft;
 		do
@@ -697,90 +507,6 @@ static void __poller_handle_recvfrom(struct __poller_node *node,
 	node->error = errno;
 	node->state = PR_ST_ERROR;
 	free(node->res);
-	poller->callback((struct poller_result *)node, poller->context);
-}
-
-static void __poller_handle_ssl_accept(struct __poller_node *node,
-									   poller_t *poller)
-{
-	int ret = SSL_accept(node->data.ssl);
-
-	if (ret <= 0)
-	{
-		if (__poller_handle_ssl_error(node, ret, poller) >= 0)
-			return;
-	}
-
-	if (__poller_remove_node(node, poller))
-		return;
-
-	if (ret > 0)
-	{
-		node->error = 0;
-		node->state = PR_ST_FINISHED;
-	}
-	else
-	{
-		node->error = errno;
-		node->state = PR_ST_ERROR;
-	}
-
-	poller->callback((struct poller_result *)node, poller->context);
-}
-
-static void __poller_handle_ssl_connect(struct __poller_node *node,
-										poller_t *poller)
-{
-	int ret = SSL_connect(node->data.ssl);
-
-	if (ret <= 0)
-	{
-		if (__poller_handle_ssl_error(node, ret, poller) >= 0)
-			return;
-	}
-
-	if (__poller_remove_node(node, poller))
-		return;
-
-	if (ret > 0)
-	{
-		node->error = 0;
-		node->state = PR_ST_FINISHED;
-	}
-	else
-	{
-		node->error = errno;
-		node->state = PR_ST_ERROR;
-	}
-
-	poller->callback((struct poller_result *)node, poller->context);
-}
-
-static void __poller_handle_ssl_shutdown(struct __poller_node *node,
-										 poller_t *poller)
-{
-	int ret = SSL_shutdown(node->data.ssl);
-
-	if (ret <= 0)
-	{
-		if (__poller_handle_ssl_error(node, ret, poller) >= 0)
-			return;
-	}
-
-	if (__poller_remove_node(node, poller))
-		return;
-
-	if (ret > 0)
-	{
-		node->error = 0;
-		node->state = PR_ST_FINISHED;
-	}
-	else
-	{
-		node->error = errno;
-		node->state = PR_ST_ERROR;
-	}
-
 	poller->callback((struct poller_result *)node, poller->context);
 }
 
@@ -1058,15 +784,6 @@ static void *__poller_thread_routine(void *arg)
 			case PD_OP_RECVFROM:
 				__poller_handle_recvfrom(node, poller);
 				break;
-			case PD_OP_SSL_ACCEPT:
-				__poller_handle_ssl_accept(node, poller);
-				break;
-			case PD_OP_SSL_CONNECT:
-				__poller_handle_ssl_connect(node, poller);
-				break;
-			case PD_OP_SSL_SHUTDOWN:
-				__poller_handle_ssl_shutdown(node, poller);
-				break;
 			case PD_OP_EVENT:
 				__poller_handle_event(node, poller);
 				break;
@@ -1285,15 +1002,6 @@ static int __poller_data_get_event(int *event, const struct poller_data *data)
 	case PD_OP_RECVFROM:
 		*event = EPOLLIN | EPOLLET;
 		return 1;
-	case PD_OP_SSL_ACCEPT:
-		*event = EPOLLIN | EPOLLET;
-		return 0;
-	case PD_OP_SSL_CONNECT:
-		*event = EPOLLOUT | EPOLLET;
-		return 0;
-	case PD_OP_SSL_SHUTDOWN:
-		*event = EPOLLOUT | EPOLLET;
-		return 0;
 	case PD_OP_EVENT:
 		*event = EPOLLIN | EPOLLET;
 		return 1;
@@ -1637,4 +1345,3 @@ void poller_stop(poller_t *poller)
 		poller->callback((struct poller_result *)node, poller->context);
 	}
 }
-

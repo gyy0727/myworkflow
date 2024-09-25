@@ -1,20 +1,31 @@
 /*
- * @Author       : muqiu0614 3155833132@qq.com
- * @Date         : 2024-09-12 17:46:27
- * @LastEditors  : muqiu0614 3155833132@qq.com
- * @LastEditTime : 2024-09-12 17:47:47
+ * @Author       : gyy0727 3155833132@qq.com
+ * @Date         : 2024-09-25 14:46:14
+ * @LastEditors  : gyy0727 3155833132@qq.com
+ * @LastEditTime : 2024-09-25 14:46:15
  * @FilePath     : /myworkflow/src/protocol/HttpMessage.h
  * @Description  :
- * Copyright (c) 2024 by muqiu0614 email: 3155833132@qq.com, All Rights
- * Reserved.
+ * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
  */
-#pragma once
+
+
+#ifndef _HTTPMESSAGE_H_
+#define _HTTPMESSAGE_H_
+
+#include <string.h>
+#include <utility>
+#include <string>
 #include "../kernel/list.h"
 #include "ProtocolMessage.h"
 #include "http_parser.h"
-#include <string.h>
-#include <string>
-#include <utility>
+
+/**
+ * @file   HttpMessage.h
+ * @brief  Http Protocol Interface
+ */
+
+namespace protocol
+{
 
 struct HttpMessageHeader
 {
@@ -385,4 +396,8 @@ public:
 	HttpResponse(HttpResponse&& resp) = default;
 	HttpResponse& operator = (HttpResponse&& resp) = default;
 };
+
+}
+
+#endif
 

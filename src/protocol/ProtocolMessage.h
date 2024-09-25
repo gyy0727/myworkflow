@@ -1,36 +1,57 @@
 /*
- * @Author       : muqiu0614 3155833132@qq.com
- * @Date         : 2024-09-12 17:28:55
- * @LastEditors  : muqiu0614 3155833132@qq.com
- * @LastEditTime : 2024-09-12 17:44:51
+ * @Author       : gyy0727 3155833132@qq.com
+ * @Date         : 2024-09-25 14:47:09
+ * @LastEditors  : gyy0727 3155833132@qq.com
+ * @LastEditTime : 2024-09-25 14:47:10
  * @FilePath     : /myworkflow/src/protocol/ProtocolMessage.h
  * @Description  :
- * Copyright (c) 2024 by muqiu0614 email: 3155833132@qq.com, All Rights
- * Reserved.
+ * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
  */
 
-#pragma once
 
-#include "../kernel/Communicator.h"
-#include <asm-generic/errno.h>
+#ifndef _PROTOCOLMESSAGE_H_
+#define _PROTOCOLMESSAGE_H_
+
 #include <errno.h>
 #include <stddef.h>
 #include <utility>
+#include "../kernel/Communicator.h"
 
-class ProtocolMessage : public CommMessageOut, public CommMessageIn {
+/**
+ * @file   ProtocolMessage.h
+ * @brief  General Protocol Interface
+ */
+
+namespace protocol
+{
+
+class ProtocolMessage : public CommMessageOut, public CommMessageIn
+{
 protected:
-  virtual int encode(struct iovec vectors[], int max) {
-    errno = ENOSYS;
-    return -1;
-  }
-  virtual int append(const void *buf, size_t *size) {
-    return this->append(buf, *size);
-  }
-  virtual int append(const void *buf, size_t size) {
-    errno = ENOSYS;
-    return -1;
-  }
-  public:
+	virtual int encode(struct iovec vectors[], int max)
+	{
+		errno = ENOSYS;
+		return -1;
+	}
+
+	/* You have to implement one of the 'append' functions, and the first one
+	 * with arguement 'size_t *size' is recommmended. */
+
+	/* Argument 'size' indicates bytes to append, and returns bytes used. */
+	virtual int append(const void *buf, size_t *size)
+	{
+		return this->append(buf, *size);
+	}
+
+	/* When implementing this one, all bytes are consumed. Cannot support
+	 * streaming protocol. */
+	virtual int append(const void *buf, size_t size)
+	{
+		errno = ENOSYS;
+		return -1;
+	}
+
+public:
 	void set_size_limit(size_t limit) { this->size_limit = limit; }
 	size_t get_size_limit() const { return this->size_limit; }
 
@@ -104,6 +125,7 @@ public:
 
 	friend class ProtocolWrapper;
 };
+
 class ProtocolWrapper : public ProtocolMessage
 {
 protected:
@@ -160,3 +182,8 @@ public:
 		return *this;
 	}
 };
+
+}
+
+#endif
+
