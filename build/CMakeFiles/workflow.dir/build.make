@@ -69,10 +69,66 @@ include CMakeFiles/workflow.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/workflow.dir/flags.make
 
+CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o: ../src/factory/HttpTaskImpl.cc
+CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o -MF CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o.d -o CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o -c /root/desktop/opensource/myworkflow/src/factory/HttpTaskImpl.cc
+
+CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/factory/HttpTaskImpl.cc > CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.i
+
+CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/factory/HttpTaskImpl.cc -o CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.s
+
+CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o: ../src/factory/WFResourcePool.cc
+CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o -MF CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o.d -o CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o -c /root/desktop/opensource/myworkflow/src/factory/WFResourcePool.cc
+
+CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/factory/WFResourcePool.cc > CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.i
+
+CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/factory/WFResourcePool.cc -o CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.s
+
+CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o: ../src/factory/WFTaskFactory.cc
+CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o -MF CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o.d -o CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o -c /root/desktop/opensource/myworkflow/src/factory/WFTaskFactory.cc
+
+CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/factory/WFTaskFactory.cc > CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.i
+
+CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/factory/WFTaskFactory.cc -o CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.s
+
+CMakeFiles/workflow.dir/src/factory/Workflow.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/factory/Workflow.cc.o: ../src/factory/Workflow.cc
+CMakeFiles/workflow.dir/src/factory/Workflow.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/workflow.dir/src/factory/Workflow.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/factory/Workflow.cc.o -MF CMakeFiles/workflow.dir/src/factory/Workflow.cc.o.d -o CMakeFiles/workflow.dir/src/factory/Workflow.cc.o -c /root/desktop/opensource/myworkflow/src/factory/Workflow.cc
+
+CMakeFiles/workflow.dir/src/factory/Workflow.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/factory/Workflow.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/factory/Workflow.cc > CMakeFiles/workflow.dir/src/factory/Workflow.cc.i
+
+CMakeFiles/workflow.dir/src/factory/Workflow.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/factory/Workflow.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/factory/Workflow.cc -o CMakeFiles/workflow.dir/src/factory/Workflow.cc.s
+
 CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o: ../src/kernel/CommRequest.cc
 CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o -MF CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/CommRequest.cc
 
 CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.i: cmake_force
@@ -86,7 +142,7 @@ CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o: ../src/kernel/CommScheduler.cc
 CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o -MF CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/CommScheduler.cc
 
 CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.i: cmake_force
@@ -100,7 +156,7 @@ CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o: ../src/kernel/Communicator.cc
 CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o -MF CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/Communicator.cc
 
 CMakeFiles/workflow.dir/src/kernel/Communicator.cc.i: cmake_force
@@ -114,7 +170,7 @@ CMakeFiles/workflow.dir/src/kernel/Communicator.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/Executor.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/Executor.cc.o: ../src/kernel/Executor.cc
 CMakeFiles/workflow.dir/src/kernel/Executor.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/workflow.dir/src/kernel/Executor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/workflow.dir/src/kernel/Executor.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/Executor.cc.o -MF CMakeFiles/workflow.dir/src/kernel/Executor.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/Executor.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/Executor.cc
 
 CMakeFiles/workflow.dir/src/kernel/Executor.cc.i: cmake_force
@@ -128,7 +184,7 @@ CMakeFiles/workflow.dir/src/kernel/Executor.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o: ../src/kernel/IOService_linux.cc
 CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o -MF CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/IOService_linux.cc
 
 CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.i: cmake_force
@@ -142,7 +198,7 @@ CMakeFiles/workflow.dir/src/kernel/IOService_linux.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o: ../src/kernel/IOService_thread.cc
 CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o -MF CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/IOService_thread.cc
 
 CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.i: cmake_force
@@ -156,7 +212,7 @@ CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o: ../src/kernel/SubTask.cc
 CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o -MF CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/SubTask.cc
 
 CMakeFiles/workflow.dir/src/kernel/SubTask.cc.i: cmake_force
@@ -170,7 +226,7 @@ CMakeFiles/workflow.dir/src/kernel/SubTask.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/mpoller.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/mpoller.c.o: ../src/kernel/mpoller.c
 CMakeFiles/workflow.dir/src/kernel/mpoller.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/workflow.dir/src/kernel/mpoller.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/workflow.dir/src/kernel/mpoller.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/mpoller.c.o -MF CMakeFiles/workflow.dir/src/kernel/mpoller.c.o.d -o CMakeFiles/workflow.dir/src/kernel/mpoller.c.o -c /root/desktop/opensource/myworkflow/src/kernel/mpoller.c
 
 CMakeFiles/workflow.dir/src/kernel/mpoller.c.i: cmake_force
@@ -184,7 +240,7 @@ CMakeFiles/workflow.dir/src/kernel/mpoller.c.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: ../src/kernel/msgqueue.c
 CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o -MF CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o.d -o CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o -c /root/desktop/opensource/myworkflow/src/kernel/msgqueue.c
 
 CMakeFiles/workflow.dir/src/kernel/msgqueue.c.i: cmake_force
@@ -198,7 +254,7 @@ CMakeFiles/workflow.dir/src/kernel/msgqueue.c.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/poller.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/poller.c.o: ../src/kernel/poller.c
 CMakeFiles/workflow.dir/src/kernel/poller.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/workflow.dir/src/kernel/poller.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/workflow.dir/src/kernel/poller.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/poller.c.o -MF CMakeFiles/workflow.dir/src/kernel/poller.c.o.d -o CMakeFiles/workflow.dir/src/kernel/poller.c.o -c /root/desktop/opensource/myworkflow/src/kernel/poller.c
 
 CMakeFiles/workflow.dir/src/kernel/poller.c.i: cmake_force
@@ -212,7 +268,7 @@ CMakeFiles/workflow.dir/src/kernel/poller.c.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/rbtree.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/rbtree.c.o: ../src/kernel/rbtree.c
 CMakeFiles/workflow.dir/src/kernel/rbtree.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/workflow.dir/src/kernel/rbtree.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/workflow.dir/src/kernel/rbtree.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/rbtree.c.o -MF CMakeFiles/workflow.dir/src/kernel/rbtree.c.o.d -o CMakeFiles/workflow.dir/src/kernel/rbtree.c.o -c /root/desktop/opensource/myworkflow/src/kernel/rbtree.c
 
 CMakeFiles/workflow.dir/src/kernel/rbtree.c.i: cmake_force
@@ -226,7 +282,7 @@ CMakeFiles/workflow.dir/src/kernel/rbtree.c.s: cmake_force
 CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: ../src/kernel/thrdpool.c
 CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o -MF CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o.d -o CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o -c /root/desktop/opensource/myworkflow/src/kernel/thrdpool.c
 
 CMakeFiles/workflow.dir/src/kernel/thrdpool.c.i: cmake_force
@@ -237,10 +293,66 @@ CMakeFiles/workflow.dir/src/kernel/thrdpool.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/workflow.dir/src/kernel/thrdpool.c.s"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/desktop/opensource/myworkflow/src/kernel/thrdpool.c -o CMakeFiles/workflow.dir/src/kernel/thrdpool.c.s
 
+CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o: ../src/manager/DnsCache.cc
+CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o -MF CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o.d -o CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o -c /root/desktop/opensource/myworkflow/src/manager/DnsCache.cc
+
+CMakeFiles/workflow.dir/src/manager/DnsCache.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/manager/DnsCache.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/manager/DnsCache.cc > CMakeFiles/workflow.dir/src/manager/DnsCache.cc.i
+
+CMakeFiles/workflow.dir/src/manager/DnsCache.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/manager/DnsCache.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/manager/DnsCache.cc -o CMakeFiles/workflow.dir/src/manager/DnsCache.cc.s
+
+CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o: ../src/manager/WFGlobal.cc
+CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o -MF CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o.d -o CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o -c /root/desktop/opensource/myworkflow/src/manager/WFGlobal.cc
+
+CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/manager/WFGlobal.cc > CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.i
+
+CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/manager/WFGlobal.cc -o CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.s
+
+CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o: ../src/protocol/DnsMessage.cc
+CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o -MF CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o.d -o CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o -c /root/desktop/opensource/myworkflow/src/protocol/DnsMessage.cc
+
+CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/protocol/DnsMessage.cc > CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.i
+
+CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/DnsMessage.cc -o CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.s
+
+CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o: ../src/protocol/DnsUtil.cc
+CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o -MF CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o.d -o CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o -c /root/desktop/opensource/myworkflow/src/protocol/DnsUtil.cc
+
+CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/protocol/DnsUtil.cc > CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.i
+
+CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/DnsUtil.cc -o CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.s
+
 CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o: ../src/protocol/HttpMessage.cc
 CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o -MF CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o.d -o CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o -c /root/desktop/opensource/myworkflow/src/protocol/HttpMessage.cc
 
 CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.i: cmake_force
@@ -251,10 +363,38 @@ CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.s"
 	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/HttpMessage.cc -o CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.s
 
+CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o: ../src/protocol/HttpUtil.cc
+CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o -MF CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o.d -o CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o -c /root/desktop/opensource/myworkflow/src/protocol/HttpUtil.cc
+
+CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/protocol/HttpUtil.cc > CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.i
+
+CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/HttpUtil.cc -o CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.s
+
+CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o: ../src/protocol/dns_parser.c
+CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o"
+	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o -MF CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o.d -o CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o -c /root/desktop/opensource/myworkflow/src/protocol/dns_parser.c
+
+CMakeFiles/workflow.dir/src/protocol/dns_parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/workflow.dir/src/protocol/dns_parser.c.i"
+	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/desktop/opensource/myworkflow/src/protocol/dns_parser.c > CMakeFiles/workflow.dir/src/protocol/dns_parser.c.i
+
+CMakeFiles/workflow.dir/src/protocol/dns_parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/workflow.dir/src/protocol/dns_parser.c.s"
+	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/dns_parser.c -o CMakeFiles/workflow.dir/src/protocol/dns_parser.c.s
+
 CMakeFiles/workflow.dir/src/protocol/http_parser.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/protocol/http_parser.c.o: ../src/protocol/http_parser.c
 CMakeFiles/workflow.dir/src/protocol/http_parser.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/workflow.dir/src/protocol/http_parser.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/workflow.dir/src/protocol/http_parser.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/protocol/http_parser.c.o -MF CMakeFiles/workflow.dir/src/protocol/http_parser.c.o.d -o CMakeFiles/workflow.dir/src/protocol/http_parser.c.o -c /root/desktop/opensource/myworkflow/src/protocol/http_parser.c
 
 CMakeFiles/workflow.dir/src/protocol/http_parser.c.i: cmake_force
@@ -265,10 +405,24 @@ CMakeFiles/workflow.dir/src/protocol/http_parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/workflow.dir/src/protocol/http_parser.c.s"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/desktop/opensource/myworkflow/src/protocol/http_parser.c -o CMakeFiles/workflow.dir/src/protocol/http_parser.c.s
 
+CMakeFiles/workflow.dir/src/server/WFServer.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/server/WFServer.cc.o: ../src/server/WFServer.cc
+CMakeFiles/workflow.dir/src/server/WFServer.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/workflow.dir/src/server/WFServer.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/server/WFServer.cc.o -MF CMakeFiles/workflow.dir/src/server/WFServer.cc.o.d -o CMakeFiles/workflow.dir/src/server/WFServer.cc.o -c /root/desktop/opensource/myworkflow/src/server/WFServer.cc
+
+CMakeFiles/workflow.dir/src/server/WFServer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/server/WFServer.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/server/WFServer.cc > CMakeFiles/workflow.dir/src/server/WFServer.cc.i
+
+CMakeFiles/workflow.dir/src/server/WFServer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/server/WFServer.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/server/WFServer.cc -o CMakeFiles/workflow.dir/src/server/WFServer.cc.s
+
 CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o: ../src/util/EncodeStream.cc
 CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o -MF CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o.d -o CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o -c /root/desktop/opensource/myworkflow/src/util/EncodeStream.cc
 
 CMakeFiles/workflow.dir/src/util/EncodeStream.cc.i: cmake_force
@@ -282,7 +436,7 @@ CMakeFiles/workflow.dir/src/util/EncodeStream.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/util/StringUtil.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/util/StringUtil.cc.o: ../src/util/StringUtil.cc
 CMakeFiles/workflow.dir/src/util/StringUtil.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/workflow.dir/src/util/StringUtil.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/workflow.dir/src/util/StringUtil.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/util/StringUtil.cc.o -MF CMakeFiles/workflow.dir/src/util/StringUtil.cc.o.d -o CMakeFiles/workflow.dir/src/util/StringUtil.cc.o -c /root/desktop/opensource/myworkflow/src/util/StringUtil.cc
 
 CMakeFiles/workflow.dir/src/util/StringUtil.cc.i: cmake_force
@@ -296,7 +450,7 @@ CMakeFiles/workflow.dir/src/util/StringUtil.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/util/URIParser.cc.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/util/URIParser.cc.o: ../src/util/URIParser.cc
 CMakeFiles/workflow.dir/src/util/URIParser.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/workflow.dir/src/util/URIParser.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/workflow.dir/src/util/URIParser.cc.o"
 	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/util/URIParser.cc.o -MF CMakeFiles/workflow.dir/src/util/URIParser.cc.o.d -o CMakeFiles/workflow.dir/src/util/URIParser.cc.o -c /root/desktop/opensource/myworkflow/src/util/URIParser.cc
 
 CMakeFiles/workflow.dir/src/util/URIParser.cc.i: cmake_force
@@ -310,7 +464,7 @@ CMakeFiles/workflow.dir/src/util/URIParser.cc.s: cmake_force
 CMakeFiles/workflow.dir/src/util/crc32c.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/util/crc32c.c.o: ../src/util/crc32c.c
 CMakeFiles/workflow.dir/src/util/crc32c.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/workflow.dir/src/util/crc32c.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/workflow.dir/src/util/crc32c.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/util/crc32c.c.o -MF CMakeFiles/workflow.dir/src/util/crc32c.c.o.d -o CMakeFiles/workflow.dir/src/util/crc32c.c.o -c /root/desktop/opensource/myworkflow/src/util/crc32c.c
 
 CMakeFiles/workflow.dir/src/util/crc32c.c.i: cmake_force
@@ -324,7 +478,7 @@ CMakeFiles/workflow.dir/src/util/crc32c.c.s: cmake_force
 CMakeFiles/workflow.dir/src/util/json_parser.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/util/json_parser.c.o: ../src/util/json_parser.c
 CMakeFiles/workflow.dir/src/util/json_parser.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/workflow.dir/src/util/json_parser.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/workflow.dir/src/util/json_parser.c.o"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/util/json_parser.c.o -MF CMakeFiles/workflow.dir/src/util/json_parser.c.o.d -o CMakeFiles/workflow.dir/src/util/json_parser.c.o -c /root/desktop/opensource/myworkflow/src/util/json_parser.c
 
 CMakeFiles/workflow.dir/src/util/json_parser.c.i: cmake_force
@@ -337,6 +491,10 @@ CMakeFiles/workflow.dir/src/util/json_parser.c.s: cmake_force
 
 # Object files for target workflow
 workflow_OBJECTS = \
+"CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o" \
+"CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o" \
+"CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o" \
+"CMakeFiles/workflow.dir/src/factory/Workflow.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o" \
@@ -349,8 +507,15 @@ workflow_OBJECTS = \
 "CMakeFiles/workflow.dir/src/kernel/poller.c.o" \
 "CMakeFiles/workflow.dir/src/kernel/rbtree.c.o" \
 "CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o" \
+"CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o" \
+"CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o" \
+"CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o" \
+"CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o" \
 "CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o" \
+"CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o" \
+"CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o" \
 "CMakeFiles/workflow.dir/src/protocol/http_parser.c.o" \
+"CMakeFiles/workflow.dir/src/server/WFServer.cc.o" \
 "CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o" \
 "CMakeFiles/workflow.dir/src/util/StringUtil.cc.o" \
 "CMakeFiles/workflow.dir/src/util/URIParser.cc.o" \
@@ -360,6 +525,10 @@ workflow_OBJECTS = \
 # External object files for target workflow
 workflow_EXTERNAL_OBJECTS =
 
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/factory/Workflow.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/CommRequest.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/CommScheduler.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/Communicator.cc.o
@@ -372,8 +541,15 @@ workflow_EXTERNAL_OBJECTS =
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/poller.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/rbtree.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/protocol/http_parser.c.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/server/WFServer.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/util/EncodeStream.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/util/StringUtil.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/util/URIParser.cc.o
@@ -381,7 +557,7 @@ workflow_EXTERNAL_OBJECTS =
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/util/json_parser.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/build.make
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX static library ../lib/libworkflow.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX static library ../lib/libworkflow.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/workflow.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/workflow.dir/link.txt --verbose=$(VERBOSE)
 

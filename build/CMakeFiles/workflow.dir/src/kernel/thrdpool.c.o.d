@@ -1,6 +1,10 @@
 CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: \
  /root/desktop/opensource/myworkflow/src/kernel/thrdpool.c \
- /usr/include/stdc-predef.h /usr/include/errno.h /usr/include/features.h \
+ /usr/include/stdc-predef.h \
+ /root/desktop/opensource/myworkflow/src/kernel/thrdpool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /root/desktop/opensource/myworkflow/src/kernel/msgqueue.h \
+ /usr/include/errno.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -15,7 +19,6 @@ CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -56,6 +59,4 @@ CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/select.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /root/desktop/opensource/myworkflow/src/kernel/msgqueue.h \
- /root/desktop/opensource/myworkflow/src/kernel/thrdpool.h
+ /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h

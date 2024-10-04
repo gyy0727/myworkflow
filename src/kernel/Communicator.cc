@@ -86,7 +86,6 @@ static void __release_conn(struct CommConnEntry *entry) {
   free(entry);
 }
 
-//*初始化连接目标
 int CommTarget::init(const struct sockaddr *addr, socklen_t addrlen,
                      int connect_timeout, int response_timeout) {
   int ret;
@@ -115,7 +114,6 @@ void CommTarget::deinit() {
   free(this->addr);
 }
 
-//*发送消息
 int CommMessageIn::feedback(const void *buf, size_t size) {
   struct CommConnEntry *entry = this->entry;
   const struct sockaddr *addr;
@@ -128,7 +126,6 @@ int CommMessageIn::feedback(const void *buf, size_t size) {
     return write(entry->sockfd, buf, size);
 }
 
-//*重置
 void CommMessageIn::renew() {
   CommSession *session = this->entry->session;
   session->timeout = -1;
@@ -136,7 +133,6 @@ void CommMessageIn::renew() {
   session->begin_time.tv_nsec = -1;
 }
 
-//*初始化
 int CommService::init(const struct sockaddr *bind_addr, socklen_t addrlen,
                       int listen_timeout, int response_timeout) {
   int ret;
@@ -165,7 +161,6 @@ void CommService::deinit() {
   free(this->bind_addr);
 }
 
-//*移除多余的连接
 int CommService::drain(int max) {
   struct CommConnEntry *entry;
   struct list_head *pos;
@@ -190,15 +185,12 @@ int CommService::drain(int max) {
   return cnt;
 }
 
-//*增加引用计数
 inline void CommService::incref() { __sync_add_and_fetch(&this->ref, 1); }
 
-//*减少引用计数
 inline void CommService::decref() {
   if (__sync_sub_and_fetch(&this->ref, 1) == 0)
     this->handle_unbound();
 }
-
 
 class CommServiceTarget : public CommTarget {
 public:
@@ -231,7 +223,6 @@ private:
   friend class Communicator;
 };
 
-//*关闭ComTarget上存在的连接
 int CommServiceTarget::shutdown() {
   struct CommConnEntry *entry;
   int errno_bak;
@@ -329,8 +320,6 @@ void Communicator::shutdown_service(CommService *service) {
 #endif
 #endif
 
-
-//*同步的发送消息
 int Communicator::send_message_sync(struct iovec vectors[], int cnt,
                                     struct CommConnEntry *entry) {
   CommSession *session = entry->session;
@@ -1177,6 +1166,8 @@ int Communicator::partial_written(size_t n, void *context) {
   return 0;
 }
 
+//*主要目的是生成一个commTarget
+//*真正的accept在这之前执行
 void *Communicator::accept(const struct sockaddr *addr, socklen_t addrlen,
                            int sockfd, void *context) {
   CommService *service = (CommService *)context;

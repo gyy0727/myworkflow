@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/ccache
 CXX_DEFINES = -DFMT_LOCALE -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB
 
-CXX_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util
+CXX_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util -I/root/desktop/opensource/myworkflow/src/manager -I/root/desktop/opensource/myworkflow/src/server -I/root/desktop/opensource/myworkflow/src/factory
 
 CXX_FLAGS = -std=gnu++11
 

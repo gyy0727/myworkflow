@@ -140,4 +140,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/workflow.dir/DependInfo.cmake"
   "CMakeFiles/test_thrdpool.dir/DependInfo.cmake"
   "CMakeFiles/test_httpparser.dir/DependInfo.cmake"
+  "CMakeFiles/test_http_echo_server.dir/DependInfo.cmake"
   )

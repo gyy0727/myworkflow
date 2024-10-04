@@ -16,6 +16,9 @@ include_directories(${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/src/kernel
     ${PROJECT_SOURCE_DIR}/src/protocol
     ${PROJECT_SOURCE_DIR}/src/util
+    ${PROJECT_SOURCE_DIR}/src/manager
+    ${PROJECT_SOURCE_DIR}/src/server
+    ${PROJECT_SOURCE_DIR}/src/factory
 )
 
 # 查找 pthread 库
@@ -30,6 +33,12 @@ file(GLOB SRC ${PROJECT_SOURCE_DIR}/src/kernel/*.cc
     ${PROJECT_SOURCE_DIR}/src/protocol/*.c
     ${PROJECT_SOURCE_DIR}/src/util/*.cc
     ${PROJECT_SOURCE_DIR}/src/util/*.c
+    ${PROJECT_SOURCE_DIR}/src/manager/*.cc
+    ${PROJECT_SOURCE_DIR}/src/manager/*.c
+    ${PROJECT_SOURCE_DIR}/src/server/*.cc
+    ${PROJECT_SOURCE_DIR}/src/server/*.c
+    ${PROJECT_SOURCE_DIR}/src/factory/*.cc
+    ${PROJECT_SOURCE_DIR}/src/factory/*.c
 )
 set(LIBRARIES
     ${CMAKE_THREAD_LIBS_INIT}
@@ -56,4 +65,7 @@ target_link_libraries(test_thrdpool ${LIBRARIES} workflow)
 
 add_executable(test_httpparser ${PROJECT_SOURCE_DIR}/test/test_httpparser.cc)
 target_link_libraries(test_httpparser ${LIBRARIES} workflow)
+
+add_executable(test_http_echo_server ${PROJECT_SOURCE_DIR}/test/http_echo_server.cc)
+target_link_libraries(test_http_echo_server ${LIBRARIES} workflow)
 

@@ -155,6 +155,115 @@ test_httpparser/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_httpparser.dir/build.make CMakeFiles/test_httpparser.dir/build
 .PHONY : test_httpparser/fast
 
+#=============================================================================
+# Target rules for targets named test_http_echo_server
+
+# Build rule for target.
+test_http_echo_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_http_echo_server
+.PHONY : test_http_echo_server
+
+# fast build rule for target.
+test_http_echo_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_echo_server.dir/build.make CMakeFiles/test_http_echo_server.dir/build
+.PHONY : test_http_echo_server/fast
+
+src/factory/HttpTaskImpl.o: src/factory/HttpTaskImpl.cc.o
+.PHONY : src/factory/HttpTaskImpl.o
+
+# target to build an object file
+src/factory/HttpTaskImpl.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.o
+.PHONY : src/factory/HttpTaskImpl.cc.o
+
+src/factory/HttpTaskImpl.i: src/factory/HttpTaskImpl.cc.i
+.PHONY : src/factory/HttpTaskImpl.i
+
+# target to preprocess a source file
+src/factory/HttpTaskImpl.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.i
+.PHONY : src/factory/HttpTaskImpl.cc.i
+
+src/factory/HttpTaskImpl.s: src/factory/HttpTaskImpl.cc.s
+.PHONY : src/factory/HttpTaskImpl.s
+
+# target to generate assembly for a file
+src/factory/HttpTaskImpl.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.s
+.PHONY : src/factory/HttpTaskImpl.cc.s
+
+src/factory/WFResourcePool.o: src/factory/WFResourcePool.cc.o
+.PHONY : src/factory/WFResourcePool.o
+
+# target to build an object file
+src/factory/WFResourcePool.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o
+.PHONY : src/factory/WFResourcePool.cc.o
+
+src/factory/WFResourcePool.i: src/factory/WFResourcePool.cc.i
+.PHONY : src/factory/WFResourcePool.i
+
+# target to preprocess a source file
+src/factory/WFResourcePool.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.i
+.PHONY : src/factory/WFResourcePool.cc.i
+
+src/factory/WFResourcePool.s: src/factory/WFResourcePool.cc.s
+.PHONY : src/factory/WFResourcePool.s
+
+# target to generate assembly for a file
+src/factory/WFResourcePool.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.s
+.PHONY : src/factory/WFResourcePool.cc.s
+
+src/factory/WFTaskFactory.o: src/factory/WFTaskFactory.cc.o
+.PHONY : src/factory/WFTaskFactory.o
+
+# target to build an object file
+src/factory/WFTaskFactory.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.o
+.PHONY : src/factory/WFTaskFactory.cc.o
+
+src/factory/WFTaskFactory.i: src/factory/WFTaskFactory.cc.i
+.PHONY : src/factory/WFTaskFactory.i
+
+# target to preprocess a source file
+src/factory/WFTaskFactory.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.i
+.PHONY : src/factory/WFTaskFactory.cc.i
+
+src/factory/WFTaskFactory.s: src/factory/WFTaskFactory.cc.s
+.PHONY : src/factory/WFTaskFactory.s
+
+# target to generate assembly for a file
+src/factory/WFTaskFactory.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFTaskFactory.cc.s
+.PHONY : src/factory/WFTaskFactory.cc.s
+
+src/factory/Workflow.o: src/factory/Workflow.cc.o
+.PHONY : src/factory/Workflow.o
+
+# target to build an object file
+src/factory/Workflow.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/Workflow.cc.o
+.PHONY : src/factory/Workflow.cc.o
+
+src/factory/Workflow.i: src/factory/Workflow.cc.i
+.PHONY : src/factory/Workflow.i
+
+# target to preprocess a source file
+src/factory/Workflow.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/Workflow.cc.i
+.PHONY : src/factory/Workflow.cc.i
+
+src/factory/Workflow.s: src/factory/Workflow.cc.s
+.PHONY : src/factory/Workflow.s
+
+# target to generate assembly for a file
+src/factory/Workflow.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/Workflow.cc.s
+.PHONY : src/factory/Workflow.cc.s
+
 src/kernel/CommRequest.o: src/kernel/CommRequest.cc.o
 .PHONY : src/kernel/CommRequest.o
 
@@ -443,6 +552,102 @@ src/kernel/thrdpool.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/thrdpool.c.s
 .PHONY : src/kernel/thrdpool.c.s
 
+src/manager/DnsCache.o: src/manager/DnsCache.cc.o
+.PHONY : src/manager/DnsCache.o
+
+# target to build an object file
+src/manager/DnsCache.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o
+.PHONY : src/manager/DnsCache.cc.o
+
+src/manager/DnsCache.i: src/manager/DnsCache.cc.i
+.PHONY : src/manager/DnsCache.i
+
+# target to preprocess a source file
+src/manager/DnsCache.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.i
+.PHONY : src/manager/DnsCache.cc.i
+
+src/manager/DnsCache.s: src/manager/DnsCache.cc.s
+.PHONY : src/manager/DnsCache.s
+
+# target to generate assembly for a file
+src/manager/DnsCache.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.s
+.PHONY : src/manager/DnsCache.cc.s
+
+src/manager/WFGlobal.o: src/manager/WFGlobal.cc.o
+.PHONY : src/manager/WFGlobal.o
+
+# target to build an object file
+src/manager/WFGlobal.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.o
+.PHONY : src/manager/WFGlobal.cc.o
+
+src/manager/WFGlobal.i: src/manager/WFGlobal.cc.i
+.PHONY : src/manager/WFGlobal.i
+
+# target to preprocess a source file
+src/manager/WFGlobal.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.i
+.PHONY : src/manager/WFGlobal.cc.i
+
+src/manager/WFGlobal.s: src/manager/WFGlobal.cc.s
+.PHONY : src/manager/WFGlobal.s
+
+# target to generate assembly for a file
+src/manager/WFGlobal.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.s
+.PHONY : src/manager/WFGlobal.cc.s
+
+src/protocol/DnsMessage.o: src/protocol/DnsMessage.cc.o
+.PHONY : src/protocol/DnsMessage.o
+
+# target to build an object file
+src/protocol/DnsMessage.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o
+.PHONY : src/protocol/DnsMessage.cc.o
+
+src/protocol/DnsMessage.i: src/protocol/DnsMessage.cc.i
+.PHONY : src/protocol/DnsMessage.i
+
+# target to preprocess a source file
+src/protocol/DnsMessage.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.i
+.PHONY : src/protocol/DnsMessage.cc.i
+
+src/protocol/DnsMessage.s: src/protocol/DnsMessage.cc.s
+.PHONY : src/protocol/DnsMessage.s
+
+# target to generate assembly for a file
+src/protocol/DnsMessage.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.s
+.PHONY : src/protocol/DnsMessage.cc.s
+
+src/protocol/DnsUtil.o: src/protocol/DnsUtil.cc.o
+.PHONY : src/protocol/DnsUtil.o
+
+# target to build an object file
+src/protocol/DnsUtil.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o
+.PHONY : src/protocol/DnsUtil.cc.o
+
+src/protocol/DnsUtil.i: src/protocol/DnsUtil.cc.i
+.PHONY : src/protocol/DnsUtil.i
+
+# target to preprocess a source file
+src/protocol/DnsUtil.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.i
+.PHONY : src/protocol/DnsUtil.cc.i
+
+src/protocol/DnsUtil.s: src/protocol/DnsUtil.cc.s
+.PHONY : src/protocol/DnsUtil.s
+
+# target to generate assembly for a file
+src/protocol/DnsUtil.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.s
+.PHONY : src/protocol/DnsUtil.cc.s
+
 src/protocol/HttpMessage.o: src/protocol/HttpMessage.cc.o
 .PHONY : src/protocol/HttpMessage.o
 
@@ -467,6 +672,54 @@ src/protocol/HttpMessage.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/HttpMessage.cc.s
 .PHONY : src/protocol/HttpMessage.cc.s
 
+src/protocol/HttpUtil.o: src/protocol/HttpUtil.cc.o
+.PHONY : src/protocol/HttpUtil.o
+
+# target to build an object file
+src/protocol/HttpUtil.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.o
+.PHONY : src/protocol/HttpUtil.cc.o
+
+src/protocol/HttpUtil.i: src/protocol/HttpUtil.cc.i
+.PHONY : src/protocol/HttpUtil.i
+
+# target to preprocess a source file
+src/protocol/HttpUtil.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.i
+.PHONY : src/protocol/HttpUtil.cc.i
+
+src/protocol/HttpUtil.s: src/protocol/HttpUtil.cc.s
+.PHONY : src/protocol/HttpUtil.s
+
+# target to generate assembly for a file
+src/protocol/HttpUtil.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.s
+.PHONY : src/protocol/HttpUtil.cc.s
+
+src/protocol/dns_parser.o: src/protocol/dns_parser.c.o
+.PHONY : src/protocol/dns_parser.o
+
+# target to build an object file
+src/protocol/dns_parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o
+.PHONY : src/protocol/dns_parser.c.o
+
+src/protocol/dns_parser.i: src/protocol/dns_parser.c.i
+.PHONY : src/protocol/dns_parser.i
+
+# target to preprocess a source file
+src/protocol/dns_parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.i
+.PHONY : src/protocol/dns_parser.c.i
+
+src/protocol/dns_parser.s: src/protocol/dns_parser.c.s
+.PHONY : src/protocol/dns_parser.s
+
+# target to generate assembly for a file
+src/protocol/dns_parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.s
+.PHONY : src/protocol/dns_parser.c.s
+
 src/protocol/http_parser.o: src/protocol/http_parser.c.o
 .PHONY : src/protocol/http_parser.o
 
@@ -490,6 +743,30 @@ src/protocol/http_parser.s: src/protocol/http_parser.c.s
 src/protocol/http_parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/http_parser.c.s
 .PHONY : src/protocol/http_parser.c.s
+
+src/server/WFServer.o: src/server/WFServer.cc.o
+.PHONY : src/server/WFServer.o
+
+# target to build an object file
+src/server/WFServer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/server/WFServer.cc.o
+.PHONY : src/server/WFServer.cc.o
+
+src/server/WFServer.i: src/server/WFServer.cc.i
+.PHONY : src/server/WFServer.i
+
+# target to preprocess a source file
+src/server/WFServer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/server/WFServer.cc.i
+.PHONY : src/server/WFServer.cc.i
+
+src/server/WFServer.s: src/server/WFServer.cc.s
+.PHONY : src/server/WFServer.s
+
+# target to generate assembly for a file
+src/server/WFServer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/server/WFServer.cc.s
+.PHONY : src/server/WFServer.cc.s
 
 src/util/EncodeStream.o: src/util/EncodeStream.cc.o
 .PHONY : src/util/EncodeStream.o
@@ -611,6 +888,30 @@ src/util/json_parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/util/json_parser.c.s
 .PHONY : src/util/json_parser.c.s
 
+test/http_echo_server.o: test/http_echo_server.cc.o
+.PHONY : test/http_echo_server.o
+
+# target to build an object file
+test/http_echo_server.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_echo_server.dir/build.make CMakeFiles/test_http_echo_server.dir/test/http_echo_server.cc.o
+.PHONY : test/http_echo_server.cc.o
+
+test/http_echo_server.i: test/http_echo_server.cc.i
+.PHONY : test/http_echo_server.i
+
+# target to preprocess a source file
+test/http_echo_server.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_echo_server.dir/build.make CMakeFiles/test_http_echo_server.dir/test/http_echo_server.cc.i
+.PHONY : test/http_echo_server.cc.i
+
+test/http_echo_server.s: test/http_echo_server.cc.s
+.PHONY : test/http_echo_server.s
+
+# target to generate assembly for a file
+test/http_echo_server.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_echo_server.dir/build.make CMakeFiles/test_http_echo_server.dir/test/http_echo_server.cc.s
+.PHONY : test/http_echo_server.cc.s
+
 test/test_httpparser.o: test/test_httpparser.cc.o
 .PHONY : test/test_httpparser.o
 
@@ -667,9 +968,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test_http_echo_server"
 	@echo "... test_httpparser"
 	@echo "... test_thrdpool"
 	@echo "... workflow"
+	@echo "... src/factory/HttpTaskImpl.o"
+	@echo "... src/factory/HttpTaskImpl.i"
+	@echo "... src/factory/HttpTaskImpl.s"
+	@echo "... src/factory/WFResourcePool.o"
+	@echo "... src/factory/WFResourcePool.i"
+	@echo "... src/factory/WFResourcePool.s"
+	@echo "... src/factory/WFTaskFactory.o"
+	@echo "... src/factory/WFTaskFactory.i"
+	@echo "... src/factory/WFTaskFactory.s"
+	@echo "... src/factory/Workflow.o"
+	@echo "... src/factory/Workflow.i"
+	@echo "... src/factory/Workflow.s"
 	@echo "... src/kernel/CommRequest.o"
 	@echo "... src/kernel/CommRequest.i"
 	@echo "... src/kernel/CommRequest.s"
@@ -706,12 +1020,33 @@ help:
 	@echo "... src/kernel/thrdpool.o"
 	@echo "... src/kernel/thrdpool.i"
 	@echo "... src/kernel/thrdpool.s"
+	@echo "... src/manager/DnsCache.o"
+	@echo "... src/manager/DnsCache.i"
+	@echo "... src/manager/DnsCache.s"
+	@echo "... src/manager/WFGlobal.o"
+	@echo "... src/manager/WFGlobal.i"
+	@echo "... src/manager/WFGlobal.s"
+	@echo "... src/protocol/DnsMessage.o"
+	@echo "... src/protocol/DnsMessage.i"
+	@echo "... src/protocol/DnsMessage.s"
+	@echo "... src/protocol/DnsUtil.o"
+	@echo "... src/protocol/DnsUtil.i"
+	@echo "... src/protocol/DnsUtil.s"
 	@echo "... src/protocol/HttpMessage.o"
 	@echo "... src/protocol/HttpMessage.i"
 	@echo "... src/protocol/HttpMessage.s"
+	@echo "... src/protocol/HttpUtil.o"
+	@echo "... src/protocol/HttpUtil.i"
+	@echo "... src/protocol/HttpUtil.s"
+	@echo "... src/protocol/dns_parser.o"
+	@echo "... src/protocol/dns_parser.i"
+	@echo "... src/protocol/dns_parser.s"
 	@echo "... src/protocol/http_parser.o"
 	@echo "... src/protocol/http_parser.i"
 	@echo "... src/protocol/http_parser.s"
+	@echo "... src/server/WFServer.o"
+	@echo "... src/server/WFServer.i"
+	@echo "... src/server/WFServer.s"
 	@echo "... src/util/EncodeStream.o"
 	@echo "... src/util/EncodeStream.i"
 	@echo "... src/util/EncodeStream.s"
@@ -727,6 +1062,9 @@ help:
 	@echo "... src/util/json_parser.o"
 	@echo "... src/util/json_parser.i"
 	@echo "... src/util/json_parser.s"
+	@echo "... test/http_echo_server.o"
+	@echo "... test/http_echo_server.i"
+	@echo "... test/http_echo_server.s"
 	@echo "... test/test_httpparser.o"
 	@echo "... test/test_httpparser.i"
 	@echo "... test/test_httpparser.s"

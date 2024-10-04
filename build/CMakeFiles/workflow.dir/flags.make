@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/ccache
 C_DEFINES = 
 
-C_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util
+C_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util -I/root/desktop/opensource/myworkflow/src/manager -I/root/desktop/opensource/myworkflow/src/server -I/root/desktop/opensource/myworkflow/src/factory
 
 C_FLAGS = -rdynamic -O0 -ggdb -Wall -Wno-deprecated -Werror -Wno-unused-function
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util
+CXX_INCLUDES = -I/root/desktop/opensource/myworkflow/include -I/root/desktop/opensource/myworkflow/src/kernel -I/root/desktop/opensource/myworkflow/src/protocol -I/root/desktop/opensource/myworkflow/src/util -I/root/desktop/opensource/myworkflow/src/manager -I/root/desktop/opensource/myworkflow/src/server -I/root/desktop/opensource/myworkflow/src/factory
 
 CXX_FLAGS = -rdynamic -O0 -ggdb -Wall -Wno-deprecated -Werror -Wno-unused-function -std=gnu++11
 
