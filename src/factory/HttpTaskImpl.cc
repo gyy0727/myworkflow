@@ -2,15 +2,15 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 13:23:30
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 14:30:29
+ * @LastEditTime : 2024-10-05 19:15:11
  * @FilePath     : /myworkflow/src/factory/HttpTaskImpl.cc
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
  */
 
+#include "../manager/WFGlobal.h"
 #include "../protocol/HttpUtil.h"
 #include "../util/StringUtil.h"
-#include "../manager/WFGlobal.h"
 #include "WFTaskError.h"
 #include "WFTaskFactory.h"
 #include <openssl/evp.h>
@@ -24,12 +24,10 @@ using namespace protocol;
 #define HTTP_KEEPALIVE_DEFAULT (60 * 1000)
 #define HTTP_KEEPALIVE_MAX (300 * 1000)
 
-
-
-
 /**********Server**********/
 
 void WFHttpServerTask::handle(int state, int error) {
+  std::cout << "http::handle" << std::endl;
   if (state == WFT_STATE_TOREPLY) {
     req_is_alive_ = this->req.is_keep_alive();
     if (req_is_alive_ && this->req.has_keep_alive_header()) {

@@ -221,6 +221,7 @@ int thrdpool_decrease(thrdpool_t *pool) {
   return -1;
 }
 
+//*如果当前线程属于pool,那就退出当前线程
 void thrdpool_exit(thrdpool_t *pool) {
   if (thrdpool_in_pool(pool))
     __thrdpool_exit_routine(pool);

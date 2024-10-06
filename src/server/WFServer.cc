@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 21:51:14
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 21:51:14
+ * @LastEditTime : 2024-10-05 18:46:09
  * @FilePath     : /myworkflow/src/server/WFServer.cc
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -27,9 +27,9 @@
 */
 
 #include "WFServer.h"
+#include "../factory/WFConnection.h"
 #include "../kernel/CommScheduler.h"
 #include "../manager/EndpointParams.h"
-#include "../factory/WFConnection.h"
 #include "../manager/WFGlobal.h"
 #include <atomic>
 #include <condition_variable>
@@ -54,6 +54,7 @@ private:
   std::atomic<size_t> *conn_count;
 };
 
+//*初始化各种参数,并创建scheduler
 int WFServerBase::init(const struct sockaddr *bind_addr, socklen_t addrlen) {
   int timeout = this->params.peer_response_timeout;
 
@@ -109,6 +110,7 @@ int WFServerBase::create_listen_fd() {
 }
 
 WFConnection *WFServerBase::new_connection(int accept_fd) {
+  std::cout << "server::connection()" << std::endl;
   if (++this->conn_count <= this->params.max_connections ||
       this->drain(1) == 1) {
     int reuse = 1;
@@ -134,6 +136,7 @@ void WFServerBase::handle_unbound() {
 
 int WFServerBase::start(const struct sockaddr *bind_addr, socklen_t addrlen) {
   if (this->init(bind_addr, addrlen) >= 0) {
+    //*开启监听
     if (this->scheduler->bind(this) >= 0)
       return 0;
 

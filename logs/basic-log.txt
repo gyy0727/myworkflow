@@ -298,3 +298,75 @@
 [2024-10-04 22:10:18.472] [basic_logger] [info] This is an info message with value: 42
 [2024-10-04 22:10:18.472] [basic_logger] [warning] This is a warning message with name: example
 [2024-10-04 22:10:18.472] [basic_logger] [error] This is an error message
+[2024-10-05 12:21:22.338] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 12:21:22.338] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 12:21:22.338] [basic_logger] [error] This is an error message
+[2024-10-05 12:25:45.469] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 12:25:45.470] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 12:25:45.470] [basic_logger] [error] This is an error message
+[2024-10-05 17:32:44.602] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 17:32:44.602] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 17:32:44.602] [basic_logger] [error] This is an error message
+[2024-10-05 17:54:29.645] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 17:54:29.645] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 17:54:29.645] [basic_logger] [error] This is an error message
+[2024-10-05 17:56:40.214] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 17:56:40.214] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 17:56:40.214] [basic_logger] [error] This is an error message
+[2024-10-05 18:00:24.293] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:00:24.293] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:00:24.293] [basic_logger] [error] This is an error message
+[2024-10-05 18:02:03.401] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:02:03.401] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:02:03.401] [basic_logger] [error] This is an error message
+[2024-10-05 18:11:13.572] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:11:13.573] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:11:13.573] [basic_logger] [error] This is an error message
+[2024-10-05 18:13:30.095] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:13:30.095] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:13:30.095] [basic_logger] [error] This is an error message
+[2024-10-05 18:19:11.657] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:19:11.657] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:19:11.657] [basic_logger] [error] This is an error message
+[2024-10-05 18:21:55.132] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:21:55.132] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:21:55.132] [basic_logger] [error] This is an error message
+[2024-10-05 18:22:16.221] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:22:16.221] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:22:16.221] [basic_logger] [error] This is an error message
+[2024-10-05 18:22:41.764] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:22:41.764] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:22:41.764] [basic_logger] [error] This is an error message
+[2024-10-05 18:46:22.674] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 18:46:22.674] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 18:46:22.674] [basic_logger] [error] This is an error message
+[2024-10-05 19:09:15.215] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 19:09:15.215] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 19:09:15.215] [basic_logger] [error] This is an error message
+[2024-10-05 19:10:35.758] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 19:10:35.758] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 19:10:35.758] [basic_logger] [error] This is an error message
+[2024-10-05 19:12:01.503] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 19:12:01.503] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 19:12:01.503] [basic_logger] [error] This is an error message
+[2024-10-05 19:13:51.448] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 19:13:51.448] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 19:13:51.448] [basic_logger] [error] This is an error message
+[2024-10-05 21:37:02.137] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 21:37:02.138] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 21:37:02.138] [basic_logger] [error] This is an error message
+[2024-10-05 21:38:04.772] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 21:38:04.772] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 21:38:04.772] [basic_logger] [error] This is an error message
+[2024-10-05 21:39:09.222] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 21:39:09.222] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 21:39:09.222] [basic_logger] [error] This is an error message
+[2024-10-05 21:39:35.266] [basic_logger] [info] This is an info message with value: 42
+[2024-10-05 21:39:35.266] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-05 21:39:35.266] [basic_logger] [error] This is an error message
+[2024-10-06 13:43:55.083] [basic_logger] [info] This is an info message with value: 42
+[2024-10-06 13:43:55.083] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-06 13:43:55.083] [basic_logger] [error] This is an error message
+[2024-10-06 13:44:39.835] [basic_logger] [info] This is an info message with value: 42
+[2024-10-06 13:44:39.836] [basic_logger] [warning] This is a warning message with name: example
+[2024-10-06 13:44:39.836] [basic_logger] [error] This is an error message

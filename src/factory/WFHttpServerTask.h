@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 13:23:41
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 13:23:42
+ * @LastEditTime : 2024-10-05 14:00:43
  * @FilePath     : /myworkflow/src/factory/WFHttpServerTask.h
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -31,7 +31,8 @@
 #include "../protocol/HttpMessage.h"
 #include "../manager/WFGlobal.h"
 #include "WFTask.h"
-
+#include <iostream>
+using namespace std;
 class WFHttpServerTask
     : public WFServerTask<protocol::HttpRequest, protocol::HttpResponse> {
 private:

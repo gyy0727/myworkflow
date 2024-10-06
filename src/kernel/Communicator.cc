@@ -4,6 +4,7 @@
 #include "msgqueue.h"
 #include "poller.h"
 #include "thrdpool.h"
+#include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -16,7 +17,6 @@
 #include <sys/uio.h>
 #include <time.h>
 #include <unistd.h>
-
 struct CommConnEntry {
   struct list_head list;
   CommConnection *conn;         //*连接实例
@@ -515,9 +515,12 @@ void Communicator::handle_incoming_request(struct poller_result *res) {
   }
 
   if (entry) {
-    if (session)
+    if (session) {
+      std::cout << "----------------" << std::endl;
+      assert(session);
       session->handle(state, res->error);
-
+      std::cout << "++++++++++++++++" << std::endl;
+    }
     if (__sync_sub_and_fetch(&entry->ref, 1) == 0) {
       __release_conn(entry);
       ((CommServiceTarget *)target)->decref();
@@ -599,6 +602,8 @@ void Communicator::handle_incoming_reply(struct poller_result *res) {
 }
 
 void Communicator::handle_read_result(struct poller_result *res) {
+  std::cout << "Communicator::handle_read_result" << std::endl;
+
   struct CommConnEntry *entry = (struct CommConnEntry *)res->data.context;
 
   if (res->state != PR_ST_MODIFIED) {
@@ -607,6 +612,7 @@ void Communicator::handle_read_result(struct poller_result *res) {
     else
       this->handle_incoming_reply(res);
   }
+  std::cout << "Communicator::handle_read_result--end" << std::endl;
 }
 
 void Communicator::handle_reply_result(struct poller_result *res) {
@@ -1291,6 +1297,7 @@ int Communicator::init(size_t poller_threads, size_t handler_threads) {
   return -1;
 }
 
+//*重置Communicator
 void Communicator::deinit() {
   int in_handler = this->is_handler_thread();
 
@@ -1427,7 +1434,9 @@ int Communicator::request_new_conn(CommSession *session, CommTarget *target) {
   return -1;
 }
 
+//*用于客户端
 int Communicator::request(CommSession *session, CommTarget *target) {
+  std::cout << "request()" << std::endl;
   int errno_bak;
 
   if (session->passive) {
@@ -1472,6 +1481,7 @@ int Communicator::nonblock_listen(CommService *service) {
   return -1;
 }
 
+//*listen且将listen_fd的回调函数设置为accept
 int Communicator::bind(CommService *service) {
   struct poller_data data;
   int errno_bak = errno;
@@ -1488,6 +1498,7 @@ int Communicator::bind(CommService *service) {
       data.operation = PD_OP_LISTEN;
       data.accept = Communicator::accept;
     } else {
+      //*udp连接
       data.operation = PD_OP_RECVFROM;
       data.recvfrom = Communicator::recvfrom;
     }
@@ -1594,6 +1605,7 @@ int Communicator::reply_unreliable(CommSession *session, CommTarget *target) {
 }
 
 int Communicator::reply(CommSession *session) {
+  std::cout << "reply()" << std::endl;
   struct CommConnEntry *entry;
   CommServiceTarget *target;
   int errno_bak;
@@ -1608,9 +1620,9 @@ int Communicator::reply(CommSession *session) {
   session->passive = 3;
   target = (CommServiceTarget *)session->target;
   if (target->service->reliable)
-    ret = this->reply_reliable(session, target);
+    ret = this->reply_reliable(session, target); //*tcp
   else
-    ret = this->reply_unreliable(session, target);
+    ret = this->reply_unreliable(session, target); //*udp
 
   if (ret == 0) {
     entry = session->in->entry;
@@ -1626,7 +1638,9 @@ int Communicator::reply(CommSession *session) {
   return 0;
 }
 
+//*就是将数据添加到message_in
 int Communicator::push(const void *buf, size_t size, CommSession *session) {
+  std::cout << "push()" << std::endl;
   CommMessageIn *in = session->in;
   pthread_mutex_t *mutex;
   int ret;
@@ -1655,6 +1669,7 @@ int Communicator::push(const void *buf, size_t size, CommSession *session) {
   return ret;
 }
 
+//*关闭某个会话
 int Communicator::shutdown(CommSession *session) {
   CommServiceTarget *target;
 
@@ -1673,6 +1688,7 @@ int Communicator::shutdown(CommSession *session) {
   return 0;
 }
 
+//*睡眠
 int Communicator::sleep(SleepSession *session) {
   struct timespec value;
 
@@ -1685,10 +1701,12 @@ int Communicator::sleep(SleepSession *session) {
   return -1;
 }
 
+//*取消睡眠
 int Communicator::unsleep(SleepSession *session) {
   return mpoller_del_timer(session->timer, session->index, this->mpoller);
 }
 
+//*判断当前线程是否在handler线程池中
 int Communicator::is_handler_thread() const {
   return thrdpool_in_pool(this->thrdpool);
 }
@@ -1696,6 +1714,7 @@ int Communicator::is_handler_thread() const {
 extern "C" void __thrdpool_schedule(const struct thrdpool_task *, void *,
                                     thrdpool_t *);
 
+//*增加handle线程
 int Communicator::increase_handler_thread() {
   void *buf = malloc(4 * sizeof(void *));
 
@@ -1713,10 +1732,10 @@ int Communicator::increase_handler_thread() {
   return -1;
 }
 
+//*减少handle线程
 int Communicator::decrease_handler_thread() {
   struct poller_result *res;
   size_t size;
-
   size = sizeof(struct poller_result) + sizeof(void *);
   res = (struct poller_result *)malloc(size);
   if (res) {
@@ -1724,11 +1743,8 @@ int Communicator::decrease_handler_thread() {
     msgqueue_put_head(res, this->msgqueue);
     return 0;
   }
-
   return -1;
 }
-
-#ifdef __linux__
 
 void Communicator::shutdown_io_service(IOService *service) {
   pthread_mutex_lock(&service->mutex);
@@ -1738,6 +1754,7 @@ void Communicator::shutdown_io_service(IOService *service) {
   service->decref();
 }
 
+//*其实就是将异步io的事件fd添加到epoll,来监听异步io事件的完成
 int Communicator::io_bind(IOService *service) {
   struct poller_data data;
   int event_fd;
@@ -1763,6 +1780,7 @@ int Communicator::io_bind(IOService *service) {
   return -1;
 }
 
+//*将异步io的事件fd从epoll删除
 void Communicator::io_unbind(IOService *service) {
   int errno_bak = errno;
 
@@ -1772,53 +1790,3 @@ void Communicator::io_unbind(IOService *service) {
     errno = errno_bak;
   }
 }
-
-#else
-
-void Communicator::shutdown_io_service(IOService *service) {
-  pthread_mutex_lock(&service->mutex);
-  close(service->pipe_fd[0]);
-  close(service->pipe_fd[1]);
-  service->pipe_fd[0] = -1;
-  service->pipe_fd[1] = -1;
-  pthread_mutex_unlock(&service->mutex);
-  service->decref();
-}
-
-int Communicator::io_bind(IOService *service) {
-  struct poller_data data;
-  int pipe_fd[2];
-
-  if (service->create_pipe_fd(pipe_fd) >= 0) {
-    if (__set_fd_nonblock(pipe_fd[0]) >= 0) {
-      service->ref = 1;
-      data.operation = PD_OP_NOTIFY;
-      data.fd = pipe_fd[0];
-      data.notify = IOService::aio_finish;
-      data.context = service;
-      data.result = NULL;
-      if (mpoller_add(&data, -1, this->mpoller) >= 0) {
-        service->pipe_fd[0] = pipe_fd[0];
-        service->pipe_fd[1] = pipe_fd[1];
-        return 0;
-      }
-    }
-
-    close(pipe_fd[0]);
-    close(pipe_fd[1]);
-  }
-
-  return -1;
-}
-
-void Communicator::io_unbind(IOService *service) {
-  int errno_bak = errno;
-
-  if (mpoller_del(service->pipe_fd[0], this->mpoller) < 0) {
-    /* Error occurred on pipe_fd or Communicator::deinit() called. */
-    this->shutdown_io_service(service);
-    errno = errno_bak;
-  }
-}
-
-#endif

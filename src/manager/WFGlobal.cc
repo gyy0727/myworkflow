@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 21:49:15
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 22:09:38
+ * @LastEditTime : 2024-10-05 12:24:15
  * @FilePath     : /myworkflow/src/manager/WFGlobal.cc
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -16,6 +16,7 @@
 #include <arpa/inet.h>
 #include <atomic>
 #include <condition_variable>
+#include <cstring>
 #include <ctype.h>
 #include <mutex>
 #include <pthread.h>

@@ -1,4 +1,13 @@
 /*
+ * @Author       : gyy0727 3155833132@qq.com
+ * @Date         : 2024-09-09 21:43:16
+ * @LastEditors  : gyy0727 3155833132@qq.com
+ * @LastEditTime : 2024-10-05 18:18:51
+ * @FilePath     : /myworkflow/src/kernel/CommRequest.cc
+ * @Description  :
+ * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
+ */
+/*
   Copyright (c) 2019 Sogou, Inc.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,6 +30,7 @@
 #include <errno.h>
 
 void CommRequest::handle(int state, int error) {
+  std::cout << " CommRequest::handle" << std::endl;
   this->state = state;
   this->error = error;
   if (error != ETIMEDOUT)

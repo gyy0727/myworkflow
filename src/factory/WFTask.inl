@@ -2,12 +2,13 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-09-30 13:44:19
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-02 13:40:09
+ * @LastEditTime : 2024-10-06 13:44:20
  * @FilePath     : /myworkflow/src/factory/WFTask.inl
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
  */
 
+#include <thread>
 template <class REQ, class RESP>
 int WFNetworkTask<REQ, RESP>::get_peer_addr(struct sockaddr *addr,
                                             socklen_t *addrlen) const {
@@ -30,62 +31,6 @@ int WFNetworkTask<REQ, RESP>::get_peer_addr(struct sockaddr *addr,
 }
 
 template <class REQ, class RESP>
-class WFClientTask : public WFNetworkTask<REQ, RESP> {
-protected:
-  virtual CommMessageOut *message_out() {
-    /* By using prepare function, users can modify request after
-     * the connection is established. */
-    if (this->prepare)
-      this->prepare(this);
-
-    return &this->req;
-  }
-
-  virtual CommMessageIn *message_in() { return &this->resp; }
-
-protected:
-  virtual WFConnection *get_connection() const {
-    CommConnection *conn;
-
-    if (this->target) {
-      conn = this->CommSession::get_connection();
-      if (conn)
-        return (WFConnection *)conn;
-    }
-
-    errno = ENOTCONN;
-    return NULL;
-  }
-
-protected:
-  virtual SubTask *done() {
-    SeriesWork *series = series_of(this);
-
-    if (this->callback)
-      this->callback(this);
-
-    delete this;
-    return series->pop();
-  }
-
-public:
-  void set_prepare(std::function<void(WFNetworkTask<REQ, RESP> *)> prep) {
-    this->prepare = std::move(prep);
-  }
-
-protected:
-  std::function<void(WFNetworkTask<REQ, RESP> *)> prepare;
-
-public:
-  WFClientTask(CommSchedObject *object, CommScheduler *scheduler,
-               std::function<void(WFNetworkTask<REQ, RESP> *)> &&cb)
-      : WFNetworkTask<REQ, RESP>(object, scheduler, std::move(cb)) {}
-
-protected:
-  virtual ~WFClientTask() {}
-};
-
-template <class REQ, class RESP>
 class WFServerTask : public WFNetworkTask<REQ, RESP> {
 protected:
   virtual CommMessageOut *message_out() { return &this->resp; }
@@ -103,6 +48,8 @@ protected:
 
 protected:
   virtual void dispatch() {
+    std::cout << "server::dispatch() --- " << std::this_thread::get_id()
+              << std::endl;
     if (this->state == WFT_STATE_TOREPLY) {
       /* Enable get_connection() again if the reply() call is success. */
       this->processor.task = this;
@@ -138,6 +85,8 @@ protected:
     }
 
     virtual void dispatch() {
+      std::cout << "process::dispatch() --- " << std::this_thread::get_id()
+                << std::endl;
       this->process(this->task);
       this->task = NULL; /* As a flag. get_conneciton() disabled. */
       this->subtask_done();
@@ -177,6 +126,7 @@ protected:
 
 template <class REQ, class RESP>
 void WFServerTask<REQ, RESP>::handle(int state, int error) {
+  std::cout << "server::handle --- " << std::this_thread::get_id() << std::endl;
   if (state == WFT_STATE_TOREPLY) {
     this->state = WFT_STATE_TOREPLY;
     this->target = this->get_target();

@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 21:50:44
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 21:50:45
+ * @LastEditTime : 2024-10-05 17:56:14
  * @FilePath     : /myworkflow/src/server/WFServer.h
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -29,8 +29,8 @@
 #ifndef _WFSERVER_H_
 #define _WFSERVER_H_
 
-#include "../manager/EndpointParams.h"
 #include "../factory/WFTaskFactory.h"
+#include "../manager/EndpointParams.h"
 #include <atomic>
 #include <condition_variable>
 #include <errno.h>
@@ -96,18 +96,16 @@ public:
     this->wait_finish();
   }
 
-  /* Nonblocking terminating the server. For stopping multiple servers.
-   * Typically, call shutdown() and then wait_finish().
-   * But indeed wait_finish() can be called before shutdown(), even before
-   * start() in another thread. */
+  /*无阻塞终止服务器。用于停止多台服务器。
+   *通常，调用shutdown（），然后调用wait_finish（）。
+   *但实际上wait_finish（）可以在shutdown（）之前调用，甚至在
+   *start（）在另一个线程中*/
   void shutdown();
   void wait_finish();
 
 public:
   size_t get_conn_count() const { return this->conn_count; }
 
-  /* Get the listening address. This is often used after starting
-   * server on a random port (start() with port == 0). */
   int get_listen_addr(struct sockaddr *addr, socklen_t *addrlen) const {
     if (this->listen_fd >= 0)
       return getsockname(this->listen_fd, addr, addrlen);
@@ -131,15 +129,13 @@ private:
   virtual void handle_unbound();
 
 protected:
-  std::atomic<size_t> conn_count;
+  std::atomic<size_t> conn_count; //*链接数量
 
 private:
-  int listen_fd;
-  bool unbind_finish;
-
+  int listen_fd;      //*监听文件描述符
+  bool unbind_finish; //*取消监听
   std::mutex mutex;
   std::condition_variable cond;
-
   class CommScheduler *scheduler;
 };
 
@@ -156,12 +152,13 @@ protected:
   virtual CommSession *new_session(long long seq, CommConnection *conn);
 
 protected:
-  std::function<void(WFNetworkTask<REQ, RESP> *)> process;
+  std::function<void(WFNetworkTask<REQ, RESP> *)> process; //*回调函数
 };
 
 template <class REQ, class RESP>
 CommSession *WFServer<REQ, RESP>::new_session(long long seq,
                                               CommConnection *conn) {
+  std::cout << "server::new_session" << std::endl;
   using factory = WFNetworkTaskFactory<REQ, RESP>;
   WFNetworkTask<REQ, RESP> *task;
 

@@ -3,13 +3,14 @@
 
 #include "list.h"
 #include "poller.h"
+#include <iostream>
 #include <pthread.h>
 #include <stddef.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <time.h>
-
+using namespace std;
 //*连接实例
 class CommConnection {
 public:
@@ -24,18 +25,21 @@ public:
   void deinit();
 
 public:
+  //*addr=this->addr
   void get_addr(const struct sockaddr **addr, socklen_t *addrlen) const {
     *addr = this->addr;
     *addrlen = this->addrlen;
   }
-  //*是否有空闲链接
+  //*是否有空闲链接,检查idle_list是否empty
   int has_idle_conn() const { return !list_empty(&this->idle_list); }
 
 private:
+  //*根据this->addr->sa_family创建socket文件描述符
   virtual int create_connect_fd() {
     return socket(this->addr->sa_family, SOCK_STREAM, 0);
   }
 
+  //*创建新连接,用于客户端
   virtual CommConnection *new_connection(int connect_fd) {
     return new CommConnection;
   }
@@ -74,6 +78,7 @@ public:
 //*连接上接收到的数据
 class CommMessageIn : private poller_message_t {
 private:
+  //*将从socket文件描述符读取到的数据添加到本结构体内
   virtual int append(const void *buf, size_t *size) = 0;
 
 protected:
@@ -96,6 +101,7 @@ public:
 #define CS_STATE_STOPPED 2
 #define CS_STATE_TOREPLY 3 /* for service session only. */
 
+//*一次会话,其实就是一次task
 class CommSession {
 private:
   virtual CommMessageOut *message_out() = 0;
@@ -181,7 +187,8 @@ private:
   void decref();
 
 private:
-  int reliable; //*是否成功listen
+  int reliable;//*可靠通信,即tcp和udp
+  //*是否成功listen
   //*if (ret >= 0 || errno == EOPNOTSUPP)
   //*{
   //*service->reliable = (ret >= 0);

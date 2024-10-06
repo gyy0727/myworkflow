@@ -192,30 +192,6 @@ src/factory/HttpTaskImpl.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/HttpTaskImpl.cc.s
 .PHONY : src/factory/HttpTaskImpl.cc.s
 
-src/factory/WFResourcePool.o: src/factory/WFResourcePool.cc.o
-.PHONY : src/factory/WFResourcePool.o
-
-# target to build an object file
-src/factory/WFResourcePool.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.o
-.PHONY : src/factory/WFResourcePool.cc.o
-
-src/factory/WFResourcePool.i: src/factory/WFResourcePool.cc.i
-.PHONY : src/factory/WFResourcePool.i
-
-# target to preprocess a source file
-src/factory/WFResourcePool.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.i
-.PHONY : src/factory/WFResourcePool.cc.i
-
-src/factory/WFResourcePool.s: src/factory/WFResourcePool.cc.s
-.PHONY : src/factory/WFResourcePool.s
-
-# target to generate assembly for a file
-src/factory/WFResourcePool.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/factory/WFResourcePool.cc.s
-.PHONY : src/factory/WFResourcePool.cc.s
-
 src/factory/WFTaskFactory.o: src/factory/WFTaskFactory.cc.o
 .PHONY : src/factory/WFTaskFactory.o
 
@@ -552,30 +528,6 @@ src/kernel/thrdpool.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/thrdpool.c.s
 .PHONY : src/kernel/thrdpool.c.s
 
-src/manager/DnsCache.o: src/manager/DnsCache.cc.o
-.PHONY : src/manager/DnsCache.o
-
-# target to build an object file
-src/manager/DnsCache.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.o
-.PHONY : src/manager/DnsCache.cc.o
-
-src/manager/DnsCache.i: src/manager/DnsCache.cc.i
-.PHONY : src/manager/DnsCache.i
-
-# target to preprocess a source file
-src/manager/DnsCache.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.i
-.PHONY : src/manager/DnsCache.cc.i
-
-src/manager/DnsCache.s: src/manager/DnsCache.cc.s
-.PHONY : src/manager/DnsCache.s
-
-# target to generate assembly for a file
-src/manager/DnsCache.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/DnsCache.cc.s
-.PHONY : src/manager/DnsCache.cc.s
-
 src/manager/WFGlobal.o: src/manager/WFGlobal.cc.o
 .PHONY : src/manager/WFGlobal.o
 
@@ -599,54 +551,6 @@ src/manager/WFGlobal.s: src/manager/WFGlobal.cc.s
 src/manager/WFGlobal.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/manager/WFGlobal.cc.s
 .PHONY : src/manager/WFGlobal.cc.s
-
-src/protocol/DnsMessage.o: src/protocol/DnsMessage.cc.o
-.PHONY : src/protocol/DnsMessage.o
-
-# target to build an object file
-src/protocol/DnsMessage.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.o
-.PHONY : src/protocol/DnsMessage.cc.o
-
-src/protocol/DnsMessage.i: src/protocol/DnsMessage.cc.i
-.PHONY : src/protocol/DnsMessage.i
-
-# target to preprocess a source file
-src/protocol/DnsMessage.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.i
-.PHONY : src/protocol/DnsMessage.cc.i
-
-src/protocol/DnsMessage.s: src/protocol/DnsMessage.cc.s
-.PHONY : src/protocol/DnsMessage.s
-
-# target to generate assembly for a file
-src/protocol/DnsMessage.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsMessage.cc.s
-.PHONY : src/protocol/DnsMessage.cc.s
-
-src/protocol/DnsUtil.o: src/protocol/DnsUtil.cc.o
-.PHONY : src/protocol/DnsUtil.o
-
-# target to build an object file
-src/protocol/DnsUtil.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.o
-.PHONY : src/protocol/DnsUtil.cc.o
-
-src/protocol/DnsUtil.i: src/protocol/DnsUtil.cc.i
-.PHONY : src/protocol/DnsUtil.i
-
-# target to preprocess a source file
-src/protocol/DnsUtil.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.i
-.PHONY : src/protocol/DnsUtil.cc.i
-
-src/protocol/DnsUtil.s: src/protocol/DnsUtil.cc.s
-.PHONY : src/protocol/DnsUtil.s
-
-# target to generate assembly for a file
-src/protocol/DnsUtil.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/DnsUtil.cc.s
-.PHONY : src/protocol/DnsUtil.cc.s
 
 src/protocol/HttpMessage.o: src/protocol/HttpMessage.cc.o
 .PHONY : src/protocol/HttpMessage.o
@@ -695,30 +599,6 @@ src/protocol/HttpUtil.s: src/protocol/HttpUtil.cc.s
 src/protocol/HttpUtil.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/HttpUtil.cc.s
 .PHONY : src/protocol/HttpUtil.cc.s
-
-src/protocol/dns_parser.o: src/protocol/dns_parser.c.o
-.PHONY : src/protocol/dns_parser.o
-
-# target to build an object file
-src/protocol/dns_parser.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.o
-.PHONY : src/protocol/dns_parser.c.o
-
-src/protocol/dns_parser.i: src/protocol/dns_parser.c.i
-.PHONY : src/protocol/dns_parser.i
-
-# target to preprocess a source file
-src/protocol/dns_parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.i
-.PHONY : src/protocol/dns_parser.c.i
-
-src/protocol/dns_parser.s: src/protocol/dns_parser.c.s
-.PHONY : src/protocol/dns_parser.s
-
-# target to generate assembly for a file
-src/protocol/dns_parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/protocol/dns_parser.c.s
-.PHONY : src/protocol/dns_parser.c.s
 
 src/protocol/http_parser.o: src/protocol/http_parser.c.o
 .PHONY : src/protocol/http_parser.o
@@ -975,9 +855,6 @@ help:
 	@echo "... src/factory/HttpTaskImpl.o"
 	@echo "... src/factory/HttpTaskImpl.i"
 	@echo "... src/factory/HttpTaskImpl.s"
-	@echo "... src/factory/WFResourcePool.o"
-	@echo "... src/factory/WFResourcePool.i"
-	@echo "... src/factory/WFResourcePool.s"
 	@echo "... src/factory/WFTaskFactory.o"
 	@echo "... src/factory/WFTaskFactory.i"
 	@echo "... src/factory/WFTaskFactory.s"
@@ -1020,27 +897,15 @@ help:
 	@echo "... src/kernel/thrdpool.o"
 	@echo "... src/kernel/thrdpool.i"
 	@echo "... src/kernel/thrdpool.s"
-	@echo "... src/manager/DnsCache.o"
-	@echo "... src/manager/DnsCache.i"
-	@echo "... src/manager/DnsCache.s"
 	@echo "... src/manager/WFGlobal.o"
 	@echo "... src/manager/WFGlobal.i"
 	@echo "... src/manager/WFGlobal.s"
-	@echo "... src/protocol/DnsMessage.o"
-	@echo "... src/protocol/DnsMessage.i"
-	@echo "... src/protocol/DnsMessage.s"
-	@echo "... src/protocol/DnsUtil.o"
-	@echo "... src/protocol/DnsUtil.i"
-	@echo "... src/protocol/DnsUtil.s"
 	@echo "... src/protocol/HttpMessage.o"
 	@echo "... src/protocol/HttpMessage.i"
 	@echo "... src/protocol/HttpMessage.s"
 	@echo "... src/protocol/HttpUtil.o"
 	@echo "... src/protocol/HttpUtil.i"
 	@echo "... src/protocol/HttpUtil.s"
-	@echo "... src/protocol/dns_parser.o"
-	@echo "... src/protocol/dns_parser.i"
-	@echo "... src/protocol/dns_parser.s"
 	@echo "... src/protocol/http_parser.o"
 	@echo "... src/protocol/http_parser.i"
 	@echo "... src/protocol/http_parser.s"

@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-09-30 10:09:25
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-09-30 12:04:31
+ * @LastEditTime : 2024-10-05 18:12:29
  * @FilePath     : /myworkflow/src/factory/Workflow.h
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -14,7 +14,8 @@
 #include <mutex>
 #include <stddef.h>
 #include <utility>
-
+#include <iostream>
+using namespace std;
 class SeriesWork;
 class ParallelWork;
 using series_callback_t = std::function<void(const SeriesWork *)>;
@@ -161,6 +162,7 @@ inline SeriesWork *Workflow::create_series_work(SubTask *first,
 //*暂不清楚,好像是创建并执行
 inline void Workflow::start_series_work(SubTask *first,
                                         series_callback_t callback) {
+  std::cout << "start" << std::endl;
   new SeriesWork(first, std::move(callback));
   first->dispatch();
 }

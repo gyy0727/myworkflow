@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 13:26:06
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 15:22:26
+ * @LastEditTime : 2024-10-05 14:00:59
  * @FilePath     : /myworkflow/src/factory/WFTaskFactory.h
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -28,7 +28,8 @@
 
 #ifndef _WFTASKFACTORY_H_
 #define _WFTASKFACTORY_H_
-
+#include <iostream>
+using namespace std;
 
 #include "../manager/EndpointParams.h"
 #include "../protocol/HttpMessage.h"
@@ -78,6 +79,7 @@ public:
 #include <sys/types.h>
 #include <time.h>
 #include <utility>
+
 
 
 /**********Template Network Factory**********/

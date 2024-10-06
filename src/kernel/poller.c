@@ -2,12 +2,13 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-09-09 21:43:16
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-02 15:46:21
+ * @LastEditTime : 2024-10-05 17:59:36
  * @FilePath     : /myworkflow/src/kernel/poller.c
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
  */
 
+#include <stdio.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/uio.h>
@@ -23,13 +24,13 @@
 #include "poller.h"
 #include "rbtree.h"
 #include <errno.h>
+
 #include <limits.h>
 #include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-
 #define POLLER_BUFSIZE (256 * 1024)
 #define POLLER_EVENTS_MAX 256
 
@@ -695,24 +696,31 @@ static void *__poller_thread_routine(void *arg) {
       switch (node->data.operation) {
       case PD_OP_READ:
         __poller_handle_read(node, poller);
+        printf("读事件触发\n");
         break;
       case PD_OP_WRITE:
         __poller_handle_write(node, poller);
+        printf("写事件触发\n");
         break;
       case PD_OP_LISTEN:
         __poller_handle_listen(node, poller);
+        printf("监听事件触发\n");
         break;
       case PD_OP_CONNECT:
         __poller_handle_connect(node, poller);
+        printf("连接事件触发\n");
         break;
       case PD_OP_RECVFROM:
         __poller_handle_recvfrom(node, poller);
+        printf("recvfrom事件触发\n");
         break;
       case PD_OP_EVENT:
         __poller_handle_event(node, poller);
+        printf("异步io事件触发\n");
         break;
       case PD_OP_NOTIFY:
         __poller_handle_notify(node, poller);
+        printf("读事件触发\n");
         break;
       }
     }

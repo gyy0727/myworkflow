@@ -32,7 +32,8 @@
 #include <atomic>
 #include <functional>
 #include <utility>
-
+#include <iostream>
+using namespace std;
 class WFConnection : public CommConnection {
 public:
   void *get_context() const { return this->context; }

@@ -2,7 +2,7 @@
  * @Author       : gyy0727 3155833132@qq.com
  * @Date         : 2024-10-04 21:51:50
  * @LastEditors  : gyy0727 3155833132@qq.com
- * @LastEditTime : 2024-10-04 21:51:51
+ * @LastEditTime : 2024-10-05 17:55:43
  * @FilePath     : /myworkflow/src/server/WFHttpServer.h
  * @Description  :
  * Copyright (c) 2024 by gyy0727 email: 3155833132@qq.com, All Rights Reserved.
@@ -21,9 +21,9 @@
 #ifndef _WFHTTPSERVER_H_
 #define _WFHTTPSERVER_H_
 
+#include "../factory/WFTaskFactory.h"
 #include "../protocol/HttpMessage.h"
 #include "WFServer.h"
-#include "../factory/WFTaskFactory.h"
 #include <utility>
 
 using http_process_t = std::function<void(WFHttpTask *)>;
@@ -45,8 +45,8 @@ inline WFHttpServer::WFServer(http_process_t proc)
 template <>
 inline CommSession *WFHttpServer::new_session(long long seq,
                                               CommConnection *conn) {
+  std::cout << "http::new_session" << std::endl;
   WFHttpTask *task;
-
   task = WFServerTaskFactory::create_http_task(this, this->process);
   task->set_keep_alive(this->params.keep_alive_timeout);
   task->set_receive_timeout(this->params.receive_timeout);
