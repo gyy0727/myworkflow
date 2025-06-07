@@ -432,29 +432,29 @@ src/kernel/mpoller.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/mpoller.c.s
 .PHONY : src/kernel/mpoller.c.s
 
-src/kernel/msgqueue.o: src/kernel/msgqueue.c.o
+src/kernel/msgqueue.o: src/kernel/msgqueue.cc.o
 .PHONY : src/kernel/msgqueue.o
 
 # target to build an object file
-src/kernel/msgqueue.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o
-.PHONY : src/kernel/msgqueue.c.o
+src/kernel/msgqueue.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o
+.PHONY : src/kernel/msgqueue.cc.o
 
-src/kernel/msgqueue.i: src/kernel/msgqueue.c.i
+src/kernel/msgqueue.i: src/kernel/msgqueue.cc.i
 .PHONY : src/kernel/msgqueue.i
 
 # target to preprocess a source file
-src/kernel/msgqueue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.c.i
-.PHONY : src/kernel/msgqueue.c.i
+src/kernel/msgqueue.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.i
+.PHONY : src/kernel/msgqueue.cc.i
 
-src/kernel/msgqueue.s: src/kernel/msgqueue.c.s
+src/kernel/msgqueue.s: src/kernel/msgqueue.cc.s
 .PHONY : src/kernel/msgqueue.s
 
 # target to generate assembly for a file
-src/kernel/msgqueue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.c.s
-.PHONY : src/kernel/msgqueue.c.s
+src/kernel/msgqueue.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/workflow.dir/build.make CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.s
+.PHONY : src/kernel/msgqueue.cc.s
 
 src/kernel/poller.o: src/kernel/poller.c.o
 .PHONY : src/kernel/poller.o

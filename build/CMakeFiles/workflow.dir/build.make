@@ -223,19 +223,19 @@ CMakeFiles/workflow.dir/src/kernel/mpoller.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/workflow.dir/src/kernel/mpoller.c.s"
 	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/desktop/opensource/myworkflow/src/kernel/mpoller.c -o CMakeFiles/workflow.dir/src/kernel/mpoller.c.s
 
-CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: CMakeFiles/workflow.dir/flags.make
-CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: ../src/kernel/msgqueue.c
-CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o: CMakeFiles/workflow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o"
-	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o -MF CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o.d -o CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o -c /root/desktop/opensource/myworkflow/src/kernel/msgqueue.c
+CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o: CMakeFiles/workflow.dir/flags.make
+CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o: ../src/kernel/msgqueue.cc
+CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o: CMakeFiles/workflow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/desktop/opensource/myworkflow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o"
+	ccache /usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o -MF CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o.d -o CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o -c /root/desktop/opensource/myworkflow/src/kernel/msgqueue.cc
 
-CMakeFiles/workflow.dir/src/kernel/msgqueue.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/workflow.dir/src/kernel/msgqueue.c.i"
-	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/desktop/opensource/myworkflow/src/kernel/msgqueue.c > CMakeFiles/workflow.dir/src/kernel/msgqueue.c.i
+CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.i"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/desktop/opensource/myworkflow/src/kernel/msgqueue.cc > CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.i
 
-CMakeFiles/workflow.dir/src/kernel/msgqueue.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/workflow.dir/src/kernel/msgqueue.c.s"
-	/usr/bin/ccache  gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/desktop/opensource/myworkflow/src/kernel/msgqueue.c -o CMakeFiles/workflow.dir/src/kernel/msgqueue.c.s
+CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.s"
+	/usr/bin/ccache  g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/desktop/opensource/myworkflow/src/kernel/msgqueue.cc -o CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.s
 
 CMakeFiles/workflow.dir/src/kernel/poller.c.o: CMakeFiles/workflow.dir/flags.make
 CMakeFiles/workflow.dir/src/kernel/poller.c.o: ../src/kernel/poller.c
@@ -432,7 +432,7 @@ workflow_OBJECTS = \
 "CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/mpoller.c.o" \
-"CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o" \
+"CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o" \
 "CMakeFiles/workflow.dir/src/kernel/poller.c.o" \
 "CMakeFiles/workflow.dir/src/kernel/rbtree.c.o" \
 "CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o" \
@@ -461,7 +461,7 @@ workflow_EXTERNAL_OBJECTS =
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/IOService_thread.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/SubTask.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/mpoller.c.o
-../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/msgqueue.c.o
+../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/msgqueue.cc.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/poller.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/rbtree.c.o
 ../lib/libworkflow.a: CMakeFiles/workflow.dir/src/kernel/thrdpool.c.o
